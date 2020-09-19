@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
 
@@ -21,8 +24,8 @@ base('Table 1').select({
 
     records.forEach(function(record) {
         // console.log('Retrieved', record.get('State'));
-        info = record.get('State');
-        console.log(info);
+        name = record.get('State');
+        console.log(name);
     });
 
     // To fetch the next page of records, call `fetchNextPage`.
@@ -44,15 +47,11 @@ base('Table 1').select({
 
 
 
-const bodyParser = require("body-parser");
-
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
 
 app.get("/" , function(req, res){
   console.log(req);
   // res.sendFile(__dirname + "/state.html");
-  res.render('index', {newYorkState: info});
+  res.render('index', {stateName: name});
 })
 
 app.listen(3000, function(){
