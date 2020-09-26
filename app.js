@@ -13,35 +13,6 @@ app.set('view engine', 'ejs');
 const Airtable = require('airtable');
 const base = new Airtable({apiKey: 'keyCJifn2RC3KCb2g'}).base('appOrPuThUPb5ioAq');
 
-let info;
-
-base('Table 1').select({
-    // Selecting the first 3 records in Grid view:
-    maxRecords: 3,
-    view: "Grid view"
-}).eachPage(function page(records, fetchNextPage) {
-    // This function (`page`) will get called for each page of records.
-
-    records.forEach(function(record) {
-        // console.log('Retrieved', record.get('State'));
-        name = record.get('State');
-        console.log(name);
-    });
-
-    // To fetch the next page of records, call `fetchNextPage`.
-    // If there are more records, `page` will get called again.
-    // If there are no more records, `done` will get called.
-    fetchNextPage();
-
-}, function done(err) {
-    if (err) { console.error(err); return; }
-});
-
-
-
-
-
-
 
 
 
@@ -49,9 +20,53 @@ base('Table 1').select({
 
 
 app.get("/" , function(req, res){
-  console.log(req);
-  // res.sendFile(__dirname + "/state.html");
-  res.render('index', {stateName: name});
+
+  let allRecords = [];
+
+  base('Table 1').select({
+
+    // SELECT BY STATE
+      filterByFormula: "State = 'New York'",
+      pageSize: 100,
+
+  }).eachPage(function page(records, fetchNextPage) {
+      // This function (`page`) will get called for each page of records.
+
+      allRecords = allRecords.concat(records);
+
+
+      //   // PRINT NAME
+      //     name = record.get('State');
+      //     // console.log(name);
+
+      fetchNextPage();
+
+  }, function done(err) {
+      const recordsWithIds = allRecords.map((record) => {
+        return {
+          id: record.id,
+          ...record.fields,
+        }
+      })
+
+      const stateRecord = recordsWithIds.filter((record) => !record['Parent Id'] && record['Hierarchy Type'] === 'state')
+
+      res.render('index', {records: JSON.stringify(stateRecord)}); // TODO: Get rid of JSON.stringify.
+
+      // TODO: Convert our flat results into a hierarchy.
+      // TODO (Cont'd): We do that by making a map of our page data.
+
+      const pageHierarchy = {
+        state_details: [],
+        covid_resources: [], // Has section -> section_subtitle? -> section_links
+        general_resources: [], // Has section -> section_subtitle? -> section_links
+      }
+      if (err) { console.error(err); return; }
+  });
+
+
+//  res.render('index', {records: JSON.stringify(allRecords)});
+
 })
 
 app.listen(3000, function(){
