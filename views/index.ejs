@@ -33,9 +33,15 @@
           <h3 class="state-heading-links">
             <a href="#">< Back to Map</a></h3>
 
-            
+
               <img class="state-image"src="images/newyork.png" alt="">
-              <h1><%=records%></h1>
+
+              <% Object.keys(records).forEach(function(key, index){ const record = records[key] %>
+
+                <h1><%= record['Hierarchy Type'] %><%= record.Description %></h1>
+
+              <% }) %>
+
         </div>
 
         <!-- JUMP TO  -->
@@ -59,11 +65,13 @@
     <div class="container covid-resources">
       <div class="row">
         <div class="col">
-          <h2 id="covid_resources"class="covid-heading"><i class="fas fa-virus"></i> COVID-19 Resources</h2>
+          <h2 id="covid_resources"class="covid-heading"><i class="fas fa-virus"></i> <%= records.covid_resources.Description %></h2>
         </div>
       </div>
 
-      <div class="row">
+    <div class="row">
+
+
         <div class="col-6">
           <h2>COVID Updates</h2>
           <h3>New York City Department of Education</h3>
@@ -81,6 +89,8 @@
             <li>Welcome to the 2020-2021 School Year</li>
           </ul>
         </div>
+
+          </div>
       </div>
     </div>
 
@@ -107,6 +117,20 @@
           </ul>
         </div>
       </div>
+
+
+      <!-- EJS IS COMMENTTED OUT HERE -->
+            <div class="row">
+              <%# records.covid_resources.children.forEach(function(child) { %>
+                <div class="col-6">
+                  <h2><%# child.Description %></h2>
+                  <h3>New York City Department of Education</h3>
+                  <ul>
+                    <li>Chosing Remote Instruction for Fall</li>
+                    <li>Welcome to the 2020-2021 School Year</li>
+                  </ul>
+                </div>
+              <%# }) %>
 
       <div class="row">
         <div class="col">

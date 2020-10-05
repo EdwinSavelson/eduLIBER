@@ -7,16 +7,12 @@ app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
 
+const stateCode = 'NY';
 
 // AIRTABLE STUFF
 
 const Airtable = require('airtable');
 const base = new Airtable({apiKey: 'keyCJifn2RC3KCb2g'}).base('appOrPuThUPb5ioAq');
-
-
-
-
-
 
 
 app.get("/" , function(req, res){
@@ -26,18 +22,13 @@ app.get("/" , function(req, res){
   base('Table 1').select({
 
     // SELECT BY STATE
-      filterByFormula: "State = 'New York'",
+      filterByFormula: `State = '${stateCode}'`,
       pageSize: 100,
 
   }).eachPage(function page(records, fetchNextPage) {
       // This function (`page`) will get called for each page of records.
 
       allRecords = allRecords.concat(records);
-
-
-      //   // PRINT NAME
-      //     name = record.get('State');
-      //     // console.log(name);
 
       fetchNextPage();
 
@@ -49,9 +40,25 @@ app.get("/" , function(req, res){
         }
       })
 
-      const stateRecord = recordsWithIds.filter((record) => !record['Parent Id'] && record['Hierarchy Type'] === 'state')
+      // Get root element from hierarchy
+      const stateRecords = recordsWithIds.filter((record) => !record['Parent Id'] && record['Hierarchy Type'] === 'state')
+      const stateRecord =  stateRecords[0];
 
-      res.render('index', {records: JSON.stringify(stateRecord)}); // TODO: Get rid of JSON.stringify.
+      const pageRootChildren = recordsWithIds.reduce((accumulator, record) => {
+        // console.log('is equal', record['Parent Id'][0], stateRecord.id)
+
+        record['Parent Id'] && record['Parent Id'][0] === stateRecord.id
+          ? accumulator[record['Hierarchy Type']] = record
+          : accumulator
+
+          return accumulator
+      }, {})
+
+
+console.log(pageRootChildren);
+      // TODO: Add children (sections) to the pageRootChildren
+
+      res.render('index', {records: pageRootChildren});
 
       // TODO: Convert our flat results into a hierarchy.
       // TODO (Cont'd): We do that by making a map of our page data.
@@ -63,6 +70,7 @@ app.get("/" , function(req, res){
       }
       if (err) { console.error(err); return; }
   });
+
 
 
 //  res.render('index', {records: JSON.stringify(allRecords)});
