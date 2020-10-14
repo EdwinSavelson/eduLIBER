@@ -1,13 +1,14 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const _ = require('lodash')
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
 
-const stateCode = 'NY';
+const stateCode = 'CO';
 
 // AIRTABLE STUFF
 
@@ -33,6 +34,8 @@ app.get("/" , function(req, res){
       fetchNextPage();
 
   }, function done(err) {
+      if (err) { console.error(err); return; }
+
       const recordsWithIds = allRecords.map((record) => {
         return {
           id: record.id,
@@ -40,14 +43,19 @@ app.get("/" , function(req, res){
         }
       })
 
+      const recordsWithParentId = recordsWithIds.filter((record) => record['Parent Id'])
+
       // Get root element from hierarchy
-      const stateRecords = recordsWithIds.filter((record) => !record['Parent Id'] && record['Hierarchy Type'] === 'state')
+      const stateRecords = recordsWithIds.filter((record) => (
+        !record['Parent Id']
+        && record['Hierarchy Type'] === 'state'
+      ))
+
       const stateRecord =  stateRecords[0];
 
-      const pageRootChildren = recordsWithIds.reduce((accumulator, record) => {
+      const pageRootChildren = recordsWithParentId.reduce((accumulator, record) => {
         // console.log('is equal', record['Parent Id'][0], stateRecord.id)
-
-        record['Parent Id'] && record['Parent Id'][0] === stateRecord.id
+        record['Parent Id'][0] === stateRecord.id
           ? accumulator[record['Hierarchy Type']] = record
           : accumulator
 
@@ -55,25 +63,35 @@ app.get("/" , function(req, res){
       }, {})
 
 
-console.log(pageRootChildren);
-      // TODO: Add children (sections) to the pageRootChildren
+      //Gets the root id of covid resources
+      const covidResourcesId = recordsWithParentId.filter((record) => (
+        record['Hierarchy Type'] === 'covid_resources'
+        && record['Parent Id'][0].id
+      ))
 
-      res.render('index', {records: pageRootChildren});
+      const getChildren = (parent) => {
+        const children = recordsWithParentId.filter((record) => (
+          record['Parent Id'][0] === parent.id
+        ))
 
-      // TODO: Convert our flat results into a hierarchy.
-      // TODO (Cont'd): We do that by making a map of our page data.
+        return {
+          id: parent.id,
+          type: parent['Hierarchy Type'],
+          description: parent.Description || '',
+          link: parent.Link || null,
 
-      const pageHierarchy = {
-        state_details: [],
-        covid_resources: [], // Has section -> section_subtitle? -> section_links
-        general_resources: [], // Has section -> section_subtitle? -> section_links
+          children: children.map((child) => getChildren(child)),
+        }
       }
-      if (err) { console.error(err); return; }
+
+      const hierarchy = _.reduce(pageRootChildren, (pageObject, pageRoot, key) => (
+        _.set(pageObject, key, getChildren(pageRoot))
+      ), {})
+
+      res.render('WidaTemplate', {records: pageRootChildren, hierarchy });
+
+
   });
-
-
-
-//  res.render('index', {records: JSON.stringify(allRecords)});
 
 })
 

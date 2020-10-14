@@ -1,0 +1,89 @@
+{
+  "state_details": {
+    "id": "rec8chAfPSC7siz5a",
+    "type": "state_details",
+    "description": "Colorado",
+    "link": null,
+    "children": []
+  },
+  "general_resources": {
+    "id": "recENzxLABZSfKDtS",
+    "type": "general_resources",
+    "description": "",
+    "link": null,
+    "children": [{
+      "id": "rec1MUbvTTRClp5jV",
+      "type": "section",
+      "description": "Department of Education  ",
+      "link": null,
+      "children": [{
+        "id": "recifdC39bJQoEEMT",
+        "type": "section_link",
+        "description": "Colorado Department of Education",
+        "link": "https://www.cde.state.co.us/",
+        "children": []
+      }]
+    }, {
+      "id": "recCacuygPaQO2MZs",
+      "type": "section",
+      "description": "WIDA Information",
+      "link": null,
+      "children": [{
+        "id": "reckJXjONMFh9jaVC",
+        "type": "section_link",
+        "description": "WIDA Colorado",
+        "link": "https://wida.wisc.edu/memberships/consortium/co",
+        "children": []
+      }]
+    }, {
+      "id": "recNbS8UemmmKLSot",
+      "type": "section",
+      "description": "Departments of Cultural and Linguistic Diversity",
+      "link": null,
+      "children": [{
+        "id": "rec2xgjXPa5iO6KYP",
+        "type": "section_subtitle",
+        "description": "Colorado Department of Education",
+        "link": null,
+        "children": [{
+          "id": "recYM2vWckZANdfBU",
+          "type": "section_link",
+          "description": "Office of Culturally and Linguistically Diverse Education",
+          "link": null,
+          "children": []
+        }]
+      }]
+    }, {
+      "id": "recpYSzHxaH6UVcsa",
+      "type": "section",
+      "description": "Program Resources",
+      "link": null,
+      "children": [{
+        "id": "recyBV3gpFNxWcTCU",
+        "type": "section_subtitle",
+        "description": "Colorado Department of Education",
+        "link": null,
+        "children": [{
+          "id": "rec9qvBUf3YyCniB6",
+          "type": "section_link",
+          "description": "English Language Development Guidebook",
+          "link": null,
+          "children": []
+        }]
+      }]
+    }]
+  },
+  "covid_resources": {
+    "id": "recVKQHz8GZMsJguC",
+    "type": "covid_resources",
+    "description": "COVID-19 Resources",
+    "link": null,
+    "children": [{
+      "id": "recFDmh2Tl8brYskV",
+      "type": "section",
+      "description": "Covid Section",
+      "link": null,
+      "children": []
+    }]
+  }
+}
