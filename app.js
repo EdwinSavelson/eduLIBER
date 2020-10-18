@@ -4,11 +4,11 @@ const bodyParser = require("body-parser");
 const _ = require('lodash')
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 app.set('view engine', 'ejs');
 
 
-const stateCode = 'CO';
+const stateCode = 'AL';
 
 // AIRTABLE STUFF
 
@@ -20,7 +20,7 @@ app.get("/" , function(req, res){
 
   let allRecords = [];
 
-  base('Table 1').select({
+  base('Table 2').select({
 
     // SELECT BY STATE
       filterByFormula: `State = '${stateCode}'`,
@@ -79,7 +79,7 @@ app.get("/" , function(req, res){
           type: parent['Hierarchy Type'],
           description: parent.Description || '',
           link: parent.Link || null,
-
+          tag: parent.tag || '',
           children: children.map((child) => getChildren(child)),
         }
       }
@@ -89,11 +89,16 @@ app.get("/" , function(req, res){
       ), {})
 
       res.render('WidaTemplate', {records: pageRootChildren, hierarchy });
-
+// console.log(JSON.stringify(hierarchy));
 
   });
 
 })
+
+app.get("/board" , function(req, res){
+  res.render('boardmembers')
+})
+
 
 app.listen(3000, function(){
   console.log("server started on port 3000")

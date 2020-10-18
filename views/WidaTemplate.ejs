@@ -2,26 +2,14 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <title>eduLIBER ｜ New York</title>
-  <link rel="icon" type="image/png" href="images/eduLIBER v1 Big.png">
 
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles/statestyles.css">
-
-
-  <!-- FONT & FONT AWESOME -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-  <script src="https://kit.fontawesome.com/4250429874.js" crossorigin="anonymous"></script>
-
+<%- include("partials/head") -%>
+<link rel="stylesheet" href="styles/statestyles.css">
 </head>
 
 <body>
 
-<!-- INCLUDES HEADER FROM views/header.ejs -->
-<%- include("header") -%>
+<%- include("partials/header") -%>
 
   <!-- STATE HEADING -->
   <section id="state-heading">
@@ -32,31 +20,18 @@
         <div class="col-6 state-columns">
           <h3 class="state-heading-links">
             <a href="#">< Back to Map</a></h3>
-
-
               <img class="state-image"src="images/newyork.png" alt="">
-
-
-                <h1><%= records.state_details.Description %></h1>
-
-              <!-- <% Object.keys(records).forEach(function(key, index){ const record = records[key] %>
-
-                <h1><%= record['Hierarchy Type'] %><%= record.Description %></h1>
-
-              <% }) %> -->
-
+              <h1><%= records.state_details.Description %></h1>
         </div>
 
         <!-- JUMP TO  -->
         <div class="col-6 state-columns">
           <h3>Jump To:</h3>
           <ul>
-            <li class="state-heading-links"><a href="#covid_resources">COVID-19 Resources</a></li>
-            <li class="state-heading-links"><a href="#departments_of_education">Departments of Education</a></li>
-            <li class="state-heading-links"><a href="#departments_of_cultural">Departments of Cultural and Linguistic Diversity</a></li>
-            <li class="state-heading-links"><a href="#program_resources">Program Resources</a></li>
-            <li class="state-heading-links"><a href="#tests_for_ells">Tests For English Language Learners</a></li>
-            <li class="state-heading-links"><a href="#ny_doe">NY DOE ELD Framework</a></li>
+
+            <% hierarchy.general_resources.children.forEach(function(record){  %>
+            <li class="state-heading-links"><a href="#<%= record.tag %>"><%= record.description %></a></li>
+            <% }) %>
           </ul>
         </div>
       </div>
@@ -64,6 +39,8 @@
 
   </section>
 
+
+<!-- TODO: ACCOUNT FOR NO COVID RESOURCES OR NO SERVING ELLS -->
   <section id="covid-resources">
     <div class="container covid-resources">
       <div class="row">
@@ -72,43 +49,11 @@
         </div>
       </div>
 
-    <div class="row">
 
-
-        <div class="col-6">
-          <h2>COVID Updates</h2>
-          <h3>New York City Department of Education</h3>
-          <ul>
-            <li>Chosing Remote Instruction for Fall</li>
-            <li>Welcome to the 2020-2021 School Year</li>
-          </ul>
-        </div>
-
-        <div class="col-6">
-          <h2>Serving ELLs During COVID</h2>
-          <h3>New York City Department of Education</h3>
-          <ul>
-            <li>Equity and Excellence: Our Continued Commitment</li>
-            <li>Welcome to the 2020-2021 School Year</li>
-          </ul>
-        </div>
-
-          </div>
-      </div>
-
-
-  </section>
-
-  <section id="contents">
-    <div class="container-fluid main-content">
-
-      <!-- DEPARTMENT OF EDUCATION WITHOUT SUBHEADINGS -->
-
-
-      <div class="row">
-        <div class="col">
-          <% hierarchy.general_resources.children.forEach(function(record){  %>
-            <h2><%= record.description %></h2>
+  <div class="row">
+          <% hierarchy.covid_resources.children.forEach(function(record){  %>
+          <div class="col-6">
+            <h2 id = "<%= record.tag %>"><%= record.description %></h2>
             <% if(record.children.length > 0) { %>
               <% record.children.forEach(function(child) {  %>
                 <% if (child.type === 'section_subtitle') { %>
@@ -124,6 +69,56 @@
                       <% } %>
                     <% }) %>
                 <% } %>
+                <% if (child.type === 'section_link') { %>
+                        <!-- link -->
+                        <ul>
+                          <a href="<%= child.link%>">
+                            <li><%= child.description %></li>
+                          </a>
+                        </ul>
+                <% } %>
+              <% }) %>
+            <% } %>
+              </div>
+          <% }) %>
+          </div>
+      </div>
+  </section>
+
+  <section id="contents">
+    <div class="container-fluid main-content">
+
+      <!-- DEPARTMENT OF EDUCATION WITHOUT SUBHEADINGS -->
+
+
+      <div class="row">
+        <div class="col">
+          <% hierarchy.general_resources.children.forEach(function(record){  %>
+            <h2 id = "<%= record.tag %>"><%= record.description %></h2>
+            <% if(record.children.length > 0) { %>
+              <% record.children.forEach(function(child) {  %>
+                <% if (child.type === 'section_subtitle') { %>
+                  <h3><%= child.description %></h3>
+
+                    <% child.children.forEach(function(grandchild) {  %>
+                      <% if (grandchild.link) { %>
+                        <!-- link -->
+                        <ul>
+                          <a href="<%= grandchild.link%>">
+                            <li><%= grandchild.description %></li>
+                          </a>
+                        </ul>
+                      <% } %>
+                    <% }) %>
+                <% } %>
+                <% if (child.type === 'section_link') { %>
+                        <!-- link -->
+                        <ul>
+                          <a href="<%= child.link%>">
+                            <li><%= child.description %></li>
+                          </a>
+                        </ul>
+                <% } %>
               <% }) %>
             <% } %>
           <% }) %>
@@ -131,7 +126,7 @@
       </div>
     </div>
   </section>
-  
+
 <!-- INCLUDES FOOTER FROM views/header.ejs -->
-<%- include("footer") -%>
+<%- include("partials/footer") -%>
 </html>

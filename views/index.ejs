@@ -2,26 +2,15 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <title>eduLIBER ｜ New York</title>
-  <link rel="icon" type="image/png" href="images/eduLIBER v1 Big.png">
 
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <%- include("partials/head")
   <link rel="stylesheet" href="styles/statestyles.css">
-
-
-  <!-- FONT & FONT AWESOME -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> -->
-  <script src="https://kit.fontawesome.com/4250429874.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
 
-<!-- INCLUDES HEADER FROM views/header.ejs -->
-<%- include("header") -%>
+<%- include("partials/header") -%>
 
   <!-- STATE HEADING -->
   <section id="state-heading">
@@ -33,18 +22,9 @@
           <h3 class="state-heading-links">
             <a href="#">< Back to Map</a></h3>
 
-
               <img class="state-image"src="images/newyork.png" alt="">
 
-
                 <h1><%= records.state_details.Description %></h1>
-
-              <!-- <% Object.keys(records).forEach(function(key, index){ const record = records[key] %>
-
-                <h1><%= record['Hierarchy Type'] %><%= record.Description %></h1>
-
-              <% }) %> -->
-
         </div>
 
         <!-- JUMP TO  -->
