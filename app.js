@@ -8,7 +8,7 @@ app.use(express.static(__dirname + "/public"));
 app.set('view engine', 'ejs');
 
 
-const stateCode = 'AL';
+var stateCode = '';
 
 // AIRTABLE STUFF
 
@@ -89,7 +89,7 @@ app.get("/" , function(req, res){
       ), {})
 
       res.render('WidaTemplate', {records: pageRootChildren, hierarchy });
-// console.log(JSON.stringify(hierarchy));
+console.log(JSON.stringify(hierarchy));
 
   });
 
@@ -97,6 +97,18 @@ app.get("/" , function(req, res){
 
 app.get("/board" , function(req, res){
   res.render('boardmembers')
+})
+
+app.get("/home" , function(req, res){
+  res.render('home')
+})
+
+app.post("/home" , function(req, res){
+  var state = req.body.myState;
+  stateCode = state;
+
+  console.log(state);
+  res.redirect("/");
 })
 
 
