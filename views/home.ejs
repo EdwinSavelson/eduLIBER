@@ -12,12 +12,14 @@
   <%- include("partials/header") -%>
   <!--BIG IMAGE -->
       <div class="row main-image">
-        <div class="col-7 main-text">
-          <h1 style="font-size:50px">Lorem ipsum dolor sit</h1>
-          <h3>sed do eiusmod tempor incididunt ut </h3>
-          <br>
-          <a href="#search"><i style="color: grey" class="fas fa-chevron-circle-down fa-3x"></i></a>
-        </div>
+        <div class="">
+            <div class="col-lg-7 col-md-7 col-sm-12 main-text">
+              <img src="/images/eduLIBER v1 Big.png" alt="">
+              <p>EduLIBER endeavors to help effectively identify culturally appropriate educational tools and programs by providing an open user-centered system and database.</p>
+              <h3>Find ELL Resources</h3>
+              <a href="#search"><i style="color: grey" class="fas fa-chevron-down fa-2x"></i></a>
+            </div>
+          </div>
       </div>
     </div>
 
@@ -28,10 +30,10 @@
     <div class="container-row">
       <form class="search-bar" autocomplete="on" action="/state" method = "GET">
         <div class="autocomplete">
-          <input id="country" type="text" name="myState" placeholder="Find your State">
+          <input id="myInput" type="text" name="myState" placeholder="Find your State">
         </div>
 
-        <!-- <input type="submit" id="stateSearchSubmitButton"> -->
+        <input type="submit" id="stateSearchSubmitButton">
       </form>
     </div>
     <!-- MAP -->
@@ -432,5 +434,6 @@
 
   <!-- FOOTER -->
   <%- include("partials/footer") -%>
-<script src="index.js"></script>
+<script type="text/javascript" src="/index.js" charset="utf-8"></script>
+</body>
 </html>

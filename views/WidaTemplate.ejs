@@ -19,7 +19,7 @@
 
         <div class="col-6 state-columns">
           <h3 class="state-heading-links">
-            <a href="#">< Back to Map</a></h3>
+            <a class = "state-links"  href="#">< Back to Map</a></h3>
               <img class="state-image"src="images/newyork.png" alt="">
               <h1><%= records.state_details.Description %></h1>
         </div>
@@ -30,7 +30,7 @@
           <ul>
 
             <% hierarchy.general_resources.children.forEach(function(record){  %>
-            <li class="state-heading-links"><a href="#<%= record.tag %>"><%= record.description %></a></li>
+            <li class="state-heading-links"><a class = "state-links"  href="#<%= record.tag %>"><%= record.description %></a></li>
             <% }) %>
           </ul>
         </div>
@@ -41,6 +41,8 @@
 
 
 <!-- TODO: ACCOUNT FOR NO COVID RESOURCES OR NO SERVING ELLS -->
+
+<% if(hierarchy.covid_resources){  %>
   <section id="covid-resources">
     <div class="container covid-resources">
       <div class="row">
@@ -54,15 +56,17 @@
           <% hierarchy.covid_resources.children.forEach(function(record){  %>
           <div class="col-6">
             <h2 id = "<%= record.tag %>"><%= record.description %></h2>
+
             <% if(record.children.length > 0) { %>
               <% record.children.forEach(function(child) {  %>
+                <h2><%=child.children.description %> </h2>
                 <% if (child.type === 'section_subtitle') { %>
                   <h3><%= child.description %></h3>
                     <% child.children.forEach(function(grandchild) {  %>
                       <% if (grandchild.link) { %>
                         <!-- link -->
                         <ul>
-                          <a href="<%= grandchild.link%>">
+                          <a class = "state-links"  href="<%= grandchild.link%>">
                             <li><%= grandchild.description %></li>
                           </a>
                         </ul>
@@ -72,7 +76,7 @@
                 <% if (child.type === 'section_link') { %>
                         <!-- link -->
                         <ul>
-                          <a href="<%= child.link%>">
+                          <a class = "state-links"  href="<%= child.link%>">
                             <li><%= child.description %></li>
                           </a>
                         </ul>
@@ -84,6 +88,7 @@
           </div>
       </div>
   </section>
+<% } %>
 
   <section id="contents">
     <div class="container-fluid main-content">
@@ -104,7 +109,7 @@
                       <% if (grandchild.link) { %>
                         <!-- link -->
                         <ul>
-                          <a href="<%= grandchild.link%>">
+                          <a class = "state-links"  href="<%= grandchild.link%>">
                             <li><%= grandchild.description %></li>
                           </a>
                         </ul>
@@ -114,7 +119,7 @@
                 <% if (child.type === 'section_link') { %>
                         <!-- link -->
                         <ul>
-                          <a href="<%= child.link%>">
+                          <a class = "state-links"  href="<%= child.link%>">
                             <li><%= child.description %></li>
                           </a>
                         </ul>

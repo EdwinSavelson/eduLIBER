@@ -2,8 +2,12 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const _ = require('lodash')
+require('dotenv').config();
 
-app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(express.static(__dirname + "/public"));
 app.set('view engine', 'ejs');
 
@@ -13,43 +17,66 @@ var stateCode = '';
 // AIRTABLE STUFF
 
 const Airtable = require('airtable');
-const base = new Airtable({apiKey: 'keyCJifn2RC3KCb2g'}).base('appOrPuThUPb5ioAq');
+const base = new Airtable({
+  apiKey: process.env.AIRTABLE_API_KEY
+}).base('appOrPuThUPb5ioAq');
 
 
-app.get("/" , function(req, res){
+app.get("/", function(req, res) {
 
 
-    res.render('WidaTemplate', {records: pageRootChildren, hierarchy });
-    console.log(JSON.stringify(hierarchy));
+  res.render('WidaTemplate', {
+    records: pageRootChildren,
+    hierarchy
+  });
+  console.log(JSON.stringify(hierarchy));
 
 
 })
 
-app.get("/board" , function(req, res){
+app.get("/board", function(req, res) {
   res.render('boardmembers')
 })
 
-app.get("/home" , function(req, res){
-  res.render('home')
+app.get("/home", function(req, res) {
+
+  res.render('home');
+
 })
 
-app.post("/home" , function(req, res){
+app.post("/home", function(req, res) {
   var state = req.body.myState;
   stateCode = state;
 
+
   console.log(state);
+
   res.redirect("/");
+})
+
+app.get("/404", function(req, res) {
+  res.render('404')
+})
+
+app.get("/mission_statement", function(req, res) {
+  res.render('mission_statement')
+})
+
+app.get("/contact", function(req, res) {
+  res.render('contact')
 })
 
 app.get('/state', async function(req, res) {
 
-  // TODO: to Lowercase state name 
+  // TODO: to Lowercase state name
   // TODO: Check if '?myState' is a valid state code.
-  const stateCode = stateCodeMap[req.query.myState]
-    ? stateCodeMap[req.query.myState].code
-    : null
+  const stateCode = stateCodeMap[req.query.myState] ?
+    stateCodeMap[req.query.myState].code :
+    null
   // If not, redirect to a 404 error page.
+
   renderResourcesForState(stateCode, res, 'WidaTemplate');
+
 })
 
 const stateCodeMap = {
@@ -223,77 +250,83 @@ async function renderResourcesForState(stateCode, response, template) {
   base('Table 2').select({
 
     // SELECT BY STATE
-      filterByFormula: `State = '${stateCode}'`,
-      pageSize: 100,
+    filterByFormula: `State = '${stateCode}'`,
+    pageSize: 100,
 
   }).eachPage(function page(records, fetchNextPage) {
-      // This function (`page`) will get called for each page of records.
-      allRecords = allRecords.concat(records);
+    // This function (`page`) will get called for each page of records.
+    allRecords = allRecords.concat(records);
 
-      fetchNextPage();
+    fetchNextPage();
   }, function done(err) {
-      if (err) { console.error(err); return; }
+    if (err) {
+      console.error(err);
+      return;
+    }
 
-      const recordsWithIds = allRecords.map((record) => {
-        return {
-          id: record.id,
-          ...record.fields,
-        }
-      })
+    const recordsWithIds = allRecords.map((record) => {
+      return {
+        id: record.id,
+        ...record.fields,
+      }
+    })
 
-      const recordsWithParentId = recordsWithIds.filter((record) => record['Parent Id'])
+    const recordsWithParentId = recordsWithIds.filter((record) => record['Parent Id'])
 
-      // Get root element from hierarchy
-      const stateRecords = recordsWithIds.filter((record) => (
-        !record['Parent Id']
-        && record['Hierarchy Type'] === 'state'
+    // Get root element from hierarchy
+    const stateRecords = recordsWithIds.filter((record) => (
+      !record['Parent Id'] &&
+      record['Hierarchy Type'] === 'state'
+    ))
+
+    const stateRecord = stateRecords[0];
+
+    const pageRootChildren = recordsWithParentId.reduce((accumulator, record) => {
+      // console.log('is equal', record['Parent Id'][0], stateRecord.id)
+      record['Parent Id'][0] === stateRecord.id ?
+        accumulator[record['Hierarchy Type']] = record :
+        accumulator
+
+      return accumulator
+    }, {})
+
+    //Gets the root id of covid resources
+    const covidResourcesId = recordsWithParentId.filter((record) => (
+      record['Hierarchy Type'] === 'covid_resources' &&
+      record['Parent Id'][0].id
+    ))
+
+    const getChildren = (parent) => {
+      const children = recordsWithParentId.filter((record) => (
+        record['Parent Id'][0] === parent.id
       ))
 
-      const stateRecord =  stateRecords[0];
-
-      const pageRootChildren = recordsWithParentId.reduce((accumulator, record) => {
-        // console.log('is equal', record['Parent Id'][0], stateRecord.id)
-        record['Parent Id'][0] === stateRecord.id
-          ? accumulator[record['Hierarchy Type']] = record
-          : accumulator
-
-          return accumulator
-      }, {})
-
-      //Gets the root id of covid resources
-      const covidResourcesId = recordsWithParentId.filter((record) => (
-        record['Hierarchy Type'] === 'covid_resources'
-        && record['Parent Id'][0].id
-      ))
-
-      const getChildren = (parent) => {
-        const children = recordsWithParentId.filter((record) => (
-          record['Parent Id'][0] === parent.id
-        ))
-
-        return {
-          id: parent.id,
-          type: parent['Hierarchy Type'],
-          description: parent.Description || '',
-          link: parent.Link || null,
-          tag: parent.tag || '',
-          children: children.map((child) => getChildren(child)),
-        }
+      return {
+        id: parent.id,
+        type: parent['Hierarchy Type'],
+        description: parent.Description || '',
+        link: parent.Link || null,
+        tag: parent.tag || '',
+        children: children.map((child) => getChildren(child)),
       }
+    }
 
-      const hierarchy = _.reduce(pageRootChildren, (pageObject, pageRoot, key) => (
-        _.set(pageObject, key, getChildren(pageRoot))
-      ), {})
+    const hierarchy = _.reduce(pageRootChildren, (pageObject, pageRoot, key) => (
+      _.set(pageObject, key, getChildren(pageRoot))
+    ), {})
 
-      const result = {
-        records: pageRootChildren,
-        hierarchy,
-      }
+    const result = {
+      records: pageRootChildren,
+      hierarchy,
+    }
 
-      response.render(template, result);
-    });
+    response.render(template, result);
+
+
+  });
 }
 
-app.listen(3000, function(){
-  console.log("server started on port 3000")
+const port = process.env.PORT || 3000;
+app.listen(port, function() {
+  console.log("server started on port " + port)
 })

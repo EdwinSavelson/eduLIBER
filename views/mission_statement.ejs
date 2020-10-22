@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <%- include("partials/head") -%>
+
+  <style type="text/css">
+    .heading-image {
+      background-image: url("/images/mission_background.jpg");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center bottom;
+      background-size: cover;
+      position: relative;
+    }
+
+    .mission-head {
+      color: black;
+      padding: 3em 1em;
+      text-align: center;
+    }
+
+    .mission-head-overlay {
+      background-color: rgb(256, 256, 256);
+      opacity: 0.8;
+      padding: 2em 1em;
+    }
+
+    .about-text{
+      text-align: left;
+      padding: 0 5% 0;
+    }
+  </style>
+
+  <link rel="stylesheet" href="/styles/styles.css">
+
+</head>
+
+<body>
+  <%- include("partials/header") -%>
+
+  <div class="container-fluid">
+    <div class="row heading-image">
+      <div class="col-1">
+
+      </div>
+      <div class="col-10 mission-head">
+        <div class="mission-head-overlay">
+          <h2>Our Mission</h2>
+          <p style="font-size: .9em;">EduLIBER endeavors to help effectively identify culturally appropriate educational tools and programs by providing an open user-centered system and database.
+          </p>
+        </div>
+      </div>
+      <div class="col-1">
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col mission-head">
+        <div class="about-text">
+          <h3>At EduLIBER,</h3><p>we believe that all Culturally and linguistically Diverse learners bring multiple assets to our classrooms. Our nation’s growing population must be an integral part of policy and content curriculum curation practices.<br>
+            <br>
+            EduLIBER envisions an educational landscape in which all educators, leaders and policy makers have access to information on programming that meet the ESSA evidence standards for culturally and linguistically diverse learners. Our goal is to provide a conduit to educators and communities about effective educational tools.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <%- include("partials/footer") -%>
+</body>
