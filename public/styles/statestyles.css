@@ -10,13 +10,13 @@ body {
 
 h1{
   /* font-size: 45pt; */
-  font-size: 3.75rem;
+  font-size: 2.75rem;
 }
 h2{
-  font-size: 24pt;
+  font-size: 1.7em;;
 }
 h3{
-  font-size: 16pt;
+  font-size: 1em;
   color: #4F3B2D;
 }
 a:link, a:visited{
@@ -43,10 +43,12 @@ a:hover{
 }
 
 .state-columns{
-  padding: 5%;
+  padding: 1em 3em;
 }
 
+
 .state-heading-links{
+  font-size: .9em;
   font-weight: bold;
 }
 .state-image{

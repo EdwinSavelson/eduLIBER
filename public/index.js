@@ -1,4 +1,7 @@
 
+
+
+
 // var countries = [
 //     { label: 'United Kingdom', value: 'UK' },
 //     { label: 'United States', value: 'US' }
@@ -458,6 +461,14 @@
 
     var states = ["Alabama", "Alaska", "American Samoa", "Arizona", "Arkansas", "Bureau of Indian Education", "California", "Colorado", "Connecticut", "Delaware", "Department of Defense", "District of Columbia", "Florida", "Georgia", "Guam", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachussetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Northern Mariana Islands", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Puerto Rico", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virgin Islands", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"];
 
+
+
+      for(var i = 0; i<states.length; i++){
+      console.log("<div class='option'> <a href=" + "'" + "/state?myState=" + states[i] + "'" + ">"+states[i]+"</a></div>");
+}
+
+
+
     function autocomplete(inp, arr) {
       /*the autocomplete function takes two arguments,
       the text field element and an array of possible autocompleted values:*/
@@ -601,37 +612,37 @@ if (ios) {
 
 
 
-// // DROPDOWN MENU
+// DROPDOWN MENU
+
+
+const selected = document.querySelector(".selected");
+const optionsContainer = document.querySelector(".options-container");
+
+const optionsList = document.querySelectorAll(".option");
+
+selected.addEventListener("click", () => {
+optionsContainer.classList.toggle("active");
+});
+
+optionsList.forEach(o => {
+o.addEventListener("click", () => {
+  selected.innerHTML = o.querySelector("label").innerHTML;
+  optionsContainer.classList.remove("active");
+});
+});
+
+
+
+
+// GENERATE STATE DIVS FOR MOBILE MENU
+//   var states = ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
 //
-//
-// const selected = document.querySelector(".selected");
-// const optionsContainer = document.querySelector(".options-container");
-//
-// const optionsList = document.querySelectorAll(".option");
-//
-// selected.addEventListener("click", () => {
-// optionsContainer.classList.toggle("active");
-// });
-//
-// optionsList.forEach(o => {
-// o.addEventListener("click", () => {
-//   selected.innerHTML = o.querySelector("label").innerHTML;
-//   optionsContainer.classList.remove("active");
-// });
-// });
-//
-//
-//
-//
-// // GENERATE STATE DIVS FOR MOBILE MENU
-// //   var states = ['Alabama','Alaska','American Samoa','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Federated States of Micronesia','Florida','Georgia','Guam','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Marshall Islands','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Northern Mariana Islands','Ohio','Oklahoma','Oregon','Palau','Pennsylvania','Puerto Rico','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virgin Island','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
-// //
-// // for(i = 0; i < states.length; i++){
-// //   console.log('<div class="option">','\n','<a href="#">'+states[i]+'</a>','\n','</div>');
-// // }
-//
-//
-//
-//
-//
+// for(i = 0; i < states.length; i++){
+//   console.log('<div class="option">','\n','<a href="#">'+states[i]+'</a>','\n','</div>');
+// }
+
+
+
+
+
 autocomplete(document.getElementById("myInput"), states);

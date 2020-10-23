@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const _ = require('lodash')
 require('dotenv').config();
 
+// RECAPTCHA SITE KEY 6Ld-INoZAAAAACsWVusp03WAfJUuE3u2JHtxWSfs
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -25,7 +26,7 @@ const base = new Airtable({
 app.get("/", function(req, res) {
 
 
-  res.render('WidaTemplate', {
+  res.render('StateTemplate', {
     records: pageRootChildren,
     hierarchy
   });
@@ -69,13 +70,16 @@ app.get("/contact", function(req, res) {
 app.get('/state', async function(req, res) {
 
   // TODO: to Lowercase state name
-  // TODO: Check if '?myState' is a valid state code.
-  const stateCode = stateCodeMap[req.query.myState] ?
-    stateCodeMap[req.query.myState].code :
-    null
+  const stateCode = stateCodeMap[req.query.myState]
+  ?stateCodeMap[req.query.myState].code
+  : null
   // If not, redirect to a 404 error page.
+  if(stateCode === null){
+    res.redirect("/404");
+  }else{
+  renderResourcesForState(stateCode, res, 'StateTemplate');
+  }
 
-  renderResourcesForState(stateCode, res, 'WidaTemplate');
 
 })
 
@@ -152,7 +156,7 @@ const stateCodeMap = {
   'Maryland': {
     code: 'MD',
   },
-  'Massachussetts': {
+  'Massachusetts': {
     code: 'MA',
   },
   'Michigan': {
@@ -321,7 +325,7 @@ async function renderResourcesForState(stateCode, response, template) {
     }
 
     response.render(template, result);
-
+console.log(hierarchy.general_resources.children);
 
   });
 }

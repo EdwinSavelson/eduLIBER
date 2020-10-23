@@ -17,7 +17,8 @@
     <div class="container-fluid state-heading">
       <div class="row">
 
-        <div class="col-6 state-columns">
+        <div class="col-lg-4 col-md-4 col-sm-12 state-columns">
+
           <h3 class="state-heading-links">
             <a class = "state-links"  href="#">< Back to Map</a></h3>
               <img class="state-image"src="images/newyork.png" alt="">
@@ -25,7 +26,7 @@
         </div>
 
         <!-- JUMP TO  -->
-        <div class="col-6 state-columns">
+        <div class="col-lg-8 col-md-8 col-sm-12 state-columns">
           <h3>Jump To:</h3>
           <ul>
 
@@ -54,7 +55,7 @@
 
   <div class="row">
           <% hierarchy.covid_resources.children.forEach(function(record){  %>
-          <div class="col-6">
+          <div class="col-lg-6 col-md-12 col-sm-12">
             <h2 id = "<%= record.tag %>"><%= record.description %></h2>
 
             <% if(record.children.length > 0) { %>
