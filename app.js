@@ -23,10 +23,10 @@ const base = new Airtable({
 }).base('appOrPuThUPb5ioAq');
 
 
-app.get("/", function(req, res) {
+app.get("state", function(req, res) {
 
 
-  res.render('StateTemplate', {
+  res.render('state_template', {
     records: pageRootChildren,
     hierarchy
   });
@@ -39,13 +39,13 @@ app.get("/board", function(req, res) {
   res.render('boardmembers')
 })
 
-app.get("/home", function(req, res) {
+app.get("/", function(req, res) {
 
   res.render('home');
 
 })
 
-app.post("/home", function(req, res) {
+app.post("/", function(req, res) {
   var state = req.body.myState;
   stateCode = state;
 
@@ -77,7 +77,7 @@ app.get('/state', async function(req, res) {
   if(stateCode === null){
     res.redirect("/404");
   }else{
-  renderResourcesForState(stateCode, res, 'StateTemplate');
+  renderResourcesForState(stateCode, res, 'state_template');
   }
 
 
@@ -330,7 +330,7 @@ console.log(hierarchy.general_resources.children);
   });
 }
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("server started on port " + port)
 })
