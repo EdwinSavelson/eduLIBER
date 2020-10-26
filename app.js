@@ -97,7 +97,10 @@ app.post('/contact', (req, res) => {
   // Attempt to send the email
   smtpTrans.sendMail(mailOpts, (error, response) => {
     if (error) {
+      console.log(process.env);
       console.log(error);
+      console.log(process.env.EMAIL_USER);
+      console.log(process.env.EMAIL_PASS);
       // res.render('contact-failure') // Show a page indicating failure
     }
     else {
