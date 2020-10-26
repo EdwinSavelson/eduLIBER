@@ -97,7 +97,7 @@ app.post('/contact', (req, res) => {
   // Attempt to send the email
   smtpTrans.sendMail(mailOpts, (error, response) => {
     if (error) {
-      console.log("error");
+      console.log(error);
       // res.render('contact-failure') // Show a page indicating failure
     }
     else {
