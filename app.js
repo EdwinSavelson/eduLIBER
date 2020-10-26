@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const _ = require('lodash')
 require('dotenv').config();
+const nodemailer= require("nodemailer");
 
 // RECAPTCHA SITE KEY 6Ld-INoZAAAAACsWVusp03WAfJUuE3u2JHtxWSfs
 
@@ -30,7 +31,7 @@ app.get("state", function(req, res) {
     records: pageRootChildren,
     hierarchy
   });
-  console.log(JSON.stringify(hierarchy));
+  // console.log(JSON.stringify(hierarchy));
 
 
 })
@@ -38,6 +39,11 @@ app.get("state", function(req, res) {
 app.get("/board", function(req, res) {
   res.render('boardmembers')
 })
+
+app.get("/mia-allen", function(req, res) {
+  res.render('mia-allen')
+})
+
 
 app.get("/", function(req, res) {
 
@@ -65,6 +71,40 @@ app.get("/mission_statement", function(req, res) {
 
 app.get("/contact", function(req, res) {
   res.render('contact')
+})
+
+app.post('/contact', (req, res) => {
+
+  // Instantiate the SMTP server
+  const smtpTrans = nodemailer.createTransport({
+    host: 'mail.privateemail.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    }
+  })
+
+  // Specify what the email will look like
+  const mailOpts = {
+    from: 'tech@eduliber.org', // This is ignored by Gmail
+    to: 'tech@eduliber.org',
+    subject: 'New message from contact form at tylerkrys.ca',
+    text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
+  }
+
+  // Attempt to send the email
+  smtpTrans.sendMail(mailOpts, (error, response) => {
+    if (error) {
+      console.log("error");
+      // res.render('contact-failure') // Show a page indicating failure
+    }
+    else {
+      console.log("sent");
+      // res.render('contact-success') // Show a page indicating success
+    }
+  })
 })
 
 app.get('/state', async function(req, res) {
@@ -329,6 +369,10 @@ console.log(hierarchy.general_resources.children);
 
   });
 }
+
+app.get('*', function(req, res){
+  res.redirect("/404");
+});
 
 const port = process.env.PORT || 8080;
 app.listen(port, function() {

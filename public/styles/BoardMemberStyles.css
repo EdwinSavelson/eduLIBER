@@ -13,10 +13,14 @@ LOOK AT BOTTOM OF DOC WHEN REFACTORING */
   }
 }
 
-
+.board-background-head{
+  background-image: url("/images/board-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .board-member-image {
   animation: 1.5s ease-out 0s 1 slideInFromLeft;
-  max-width: 100%;
+  max-height: 15em;
   margin-left: auto;
   margin-right: auto;
   padding-top: 2em;
@@ -32,24 +36,24 @@ LOOK AT BOTTOM OF DOC WHEN REFACTORING */
   padding: 1em;
 }
 
+
 .heading-text {
-  border-top: 1px solid #D3D3D3;
-  border-bottom: 1px solid #D3D3D3;
+  background-color: rgb(256, 256, 256, 0.8);
+  margin: 4em;
+  padding: 2em 1em;
   padding: 2em;
   text-align: center;
-  -moz-box-shadow:    3px 3px 5px 6px #ccc;
- -webkit-box-shadow: 3px 3px 5px 6px #ccc;
- box-shadow:         3px 3px 5px 6px #ccc;
+
 }
 
 .heading-text p{
   text-align: left;
 }
-@media only screen and (max-width: 768px) {
+/* @media only screen and (max-width: 768px) {
   .board-member-image {
     max-width: 50%;
     margin-left: auto;
     margin-right: auto;
     padding-top: 2em;
   }
-}
+} */

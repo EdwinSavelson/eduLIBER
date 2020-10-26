@@ -37,7 +37,7 @@
 
         <!--Grid column-->
         <div class="col-md-12 mb-md-0 mb-5">
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+            <form id="contact-form" action= "/contact" method="POST">
 
                 <!--Grid row-->
                 <div class="row">
@@ -45,7 +45,7 @@
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-                            <input type="text" id="name" name="name" class="form-control">
+                            <input type="text" id="name" name="name" class="form-control" required>
                             <label for="name" class="">Your name</label>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                     <!--Grid column-->
                     <div class="col-md-6">
                         <div class="md-form mb-0">
-                            <input type="text" id="email" name="email" class="form-control">
+                            <input type="text" id="email" name="email" class="form-control" required>
                             <label for="email" class="">Your email</label>
                         </div>
                     </div>
@@ -64,14 +64,15 @@
                 <!--Grid row-->
 
                 <!--Grid row-->
-                <div class="row">
+                <!-- SUBJECT -->
+                <!-- <div class="row">
                     <div class="col-md-12">
                         <div class="md-form mb-0">
                             <input type="text" id="subject" name="subject" class="form-control">
                             <label for="subject" class="">Subject</label>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!--Grid row-->
 
                 <!--Grid row-->
@@ -88,14 +89,15 @@
                     </div>
                 </div>
                 <!--Grid row-->
-
+<button class="btn"type="submit">Submit</button>
             </form>
 
             <div class="text-center text-md-left">
-                <button class="btn btn-primary g-recaptcha" data-sitekey="reCAPTCHA_site_key"
+                <!-- <button class="btn btn-primary g-recaptcha" data-sitekey="reCAPTCHA_site_key"
         data-callback='onSubmit'
         data-action='submit'onclick="document.getElementById('contact-form').submit();">Send</button>
-            </div>
+            </div> -->
+
             <div class="status"></div>
         </div>
         <!--Grid column-->

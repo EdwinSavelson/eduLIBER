@@ -32,11 +32,14 @@ a:hover{
   font-family: 'Josefin Sans', sans-serif;
   color: #0B6D9E;
   text-decoration: underline;
+
 }
 
 
 /* STATE HEADING */
+
 .state-heading{
+
   background-color: #EAEEEF;
   border-top: 1px solid #D3D3D3;
   border-bottom: 1px solid #D3D3D3;
@@ -50,6 +53,9 @@ a:hover{
 .state-heading-links{
   font-size: .9em;
   font-weight: bold;
+}
+.state-columns h1{
+  padding-top: .5em;
 }
 .state-image{
   margin: 5% 10% 5%;
@@ -69,5 +75,9 @@ a:hover{
 }
 
 .main-content{
-  padding: 0 5% 0;
+  padding: 0 3em 0;
+
+}
+
+
 }

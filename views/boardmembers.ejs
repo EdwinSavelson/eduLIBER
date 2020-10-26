@@ -4,6 +4,7 @@
 <head>
 
   <%- include("partials/head") -%>
+  <link rel="stylesheet" href="/styles/styles.css">
   <link rel="stylesheet" href="/styles/BoardMemberStyles.css">
 
 </head>
@@ -13,10 +14,10 @@
 
   <%- include("partials/header") -%>
 
-  <div class="container-row">
-    <div class="row">
+  <div class="container-row ">
+    <div class="row board-background-head">
       <div class="col heading-text">
-        <h1 class="big-head">EduLIBER Advisory Board</h1>
+        <h2 class="big-head">EduLIBER Advisory Board</h2>
         <p>EduLIBER Advisory Board is a group of multilingual, multicultural educators and students collectively driven to advance equity and access for all culturally and linguistically diverse learners.</p>
       </div>
     </div>
@@ -24,78 +25,60 @@
     <section id="Board-Member-Info">
 
       <div class="row body-margins">
-        <div class="img-col col-lg-3 col-md-3 col-sm-12">
 
+        <%- include("partials/board_member_open") -%>
+          <img class="board-member-image .img-fluid" src="/images/eduliberheadshots/MiaAllenHeadshot.jpg" alt="Mia Allen Headshot">
+          <h2>Mia Ariela Allen</h2>
+            <h3>-Founder</h3>
+        
+        <%- include("partials/board_member_close") -%>
+        <%- include("partials/board_member_open") -%>
           <img class="board-member-image .img-fluid" src="/images/eduliberheadshots/BethSkeltonHeadshot.png" alt="Beth Skelton Headshot">
+          <h2>Beth Skelton</h2>
+            <h3>-Chair</h3>
+        <%- include("partials/board_member_close") -%>
 
-        </div>
-        <div class="bio-text col-lg-9 col-md-9 col-sm-12">
-
-          <p>
-          <h3>Beth Skelton</h3>
-          Beth has over 30 years of experience as a language educator and holds a Master’s Degree in Multicultural Teacher Education. She has worked with early childhood, elementary, middle, high school and adult language learners in rural, urban,
-          suburban, and international school settings. She has extensive experience and training in Kagan cooperative learning, student centered instructional coaching, Harvard Project Zero and Visible Thinking Routines, SIOP, and Comprehensible
-          Input Strategies. She has published materials for teaching adult English Learners with the TPRS method entitled Putting it Together, which have been translated into Spanish, Dutch, French, and sign language. She is a founding member and
-          chair of the Eduliber board and member of the MyEdExpert Board. Beth currently provides professional development, coaching, and consulting with schools around the world focused on providing equitable education for multilingual learners.
-          </p>
-        </div>
-      </div>
-
-      <div class="row body-margins">
-        <div class="img-col col-lg-3 col-md-3 col-sm-12">
-
+        <%- include("partials/board_member_open") -%>
           <img class="board-member-image .img-fluid" src="/images/eduliberheadshots/ChandaAustinHeadshot.png" alt="Chanda Austin Headshot">
+          <h2>Chanda Austin</h2>
+            <h3>-Member</h3>
+        <%- include("partials/board_member_close") -%>
 
-        </div>
-        <div class="bio-text col-lg-9 col-md-9 col-sm-12">
+        <%- include("partials/board_member_open") -%>
+          <img class="board-member-image .img-fluid" src="/images/eduliberheadshots/MarcBLiebmanHeadshot.png" alt="Marc B Liebman Headshot">
+          <h2>Marc B. Liebman</h2>
+            <h3>-Friend of the Board</h3>
+          <%- include("partials/board_member_close") -%>
 
-          <p>
-          <h3>Chanda Austin</h3>
-          Chanda Austin is a native of Tuscaloosa, AL and currently
-          resides in Atlanta, GA. She holds a B.S. and a M.Ed. from
-          Alabama A&amp;M University, Normal, AL and an Ed. S in School
-          Leadership from Cambridge College, Cambridge, MA. She
-          has been an educator for over twenty years serving in several different capacities and is
-          passionate about people and learning. As a board member of EduLiber, her wealth of
-          experiences in providing equable, sustainable learning opportunities to culturally and
-          linguistically diverse students and educators will support strategic planning. She is a proud
-          mother of an amazing, talented teenage girl.
-          </p>
-        </div>
+          <%- include("partials/board_member_open") -%>
+          <img class="board-member-image .img-fluid" src="/images/eduliberheadshots/ErinLymanHeadshot.png" alt="Erin Lyman Headshot">
+          <h2>Erin Lyman</h2>
+            <h3>-Treasurer</h3>
+          <%- include("partials/board_member_close") -%>
+
+          <%- include("partials/board_member_open") -%>
+          <img class="board-member-image .img-fluid" src="/images/eduliberheadshots/IsraaHusseinHeadshot.png" alt="Israa Hussein Headshot">
+          <h2>Israa Hussein</h2>
+            <h3>-Member</h3>
+          <%- include("partials/board_member_close") -%>
+
+
+          <%- include("partials/board_member_open") -%>
+          <h2>Joshua Allen</h2>
+            <h3>-Friend of the Board</h3>
+          <%- include("partials/board_member_close") -%>
+
+          <%- include("partials/board_member_open") -%>
+          <h2>Jennifer Archuleta</h2>
+            <h3>-Secretary</h3>
+          <%- include("partials/board_member_close") -%>
+
+          <%- include("partials/board_member_open") -%>
+          <h2>Heather Roberton-Devine</h2>
+            <h3>-Member</h3>
+          <%- include("partials/board_member_close") -%>
+
       </div>
-
-      <div class="row body-margins">
-        <div class="img-col col-lg-3 col-md-3 col-sm-12">
-
-          <img class="board-member-image .img-fluid" src="/images/eduliberheadshots/MarcBLiebmanHeadshot.png" alt="Marc B. Liebman Ph.D Headshot">
-
-        </div>
-        <div class="bio-text col-lg-9 col-md-9 col-sm-12">
-
-          <p>
-          <h3>Marc B. Liebman, Ph.D.</h3>
-          Marc is all about children and their success and helping them become successful
-learners, responsible citizens and tomorrow’s leaders. He has degrees in History,
-Human Development and Education and spent the first almost 40 years of his
-professional life as an educator in the public schools of California spending the first
-8 years as a teacher and the last 18 as a district superintendent. He has also been a
-principal consultant for IBM and has just retired from being the CAO and Imagine
-Learning, an educational software company.
-Along the way he was named one of the 25 top education technology advocates in
-the United States and, with his wife of 49 years, founded and continue to operate
-the Mindy and Marc Liebman Scholarship Foundation. The foundation focuses on
-helping high risk, high potential students finish their schooling and getting their
-college degrees with a focus on giving back to their communities and helping others
-as part of their becoming our future leaders.
-          </p>
-        </div>
-      </div>
-
-
-
-
-
-
 
 
   </div>
