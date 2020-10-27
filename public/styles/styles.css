@@ -109,6 +109,13 @@ input[type=submit] {
 }
 
 /* MAP STYLES */
+.seal-images{
+  max-width: 100%;
+}
+
+.map-heading{
+  padding-top: 1em;
+}
 
 #us-map {
   display: block;
@@ -161,7 +168,11 @@ h3.desktop-states {
 }
 /* MOBILE STATES DROPDOWN */
 
+.option{
+  color:white;
+}
 .select-box {
+  padding-top: 2em;
   display: none;
   /* whyyyy ----------------------------------*/
   width: 100%;
@@ -216,7 +227,7 @@ h3.desktop-states {
 
 .select-box .options-container::-webkit-scrollbar {
   width: 8px;
-  background: #0d141f;
+  background: #616069;
 }
 
 .select-box .options-container::-webkit-scrollbar-thumb {
@@ -228,6 +239,7 @@ h3.desktop-states {
   padding: 12px 24px;
   cursor: pointer;
   text-align: center;
+  background:#616069;
 }
 
 .select-box .option:hover {
@@ -258,5 +270,5 @@ h3.desktop-states {
     display: flex;
   }
 
-  
+
 }

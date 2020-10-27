@@ -43,7 +43,33 @@ app.get("/board", function(req, res) {
 app.get("/mia-allen", function(req, res) {
   res.render('mia-allen')
 })
-
+app.get("/joshua-allen", function(req, res) {
+  res.render('joshua-allen')
+})
+app.get("/jennifer-archuleta", function(req, res) {
+  res.render('jennifer-archuleta')
+})
+app.get("/erin-lyman", function(req, res) {
+  res.render('erin-lyman')
+})
+app.get("/beth-skelton", function(req, res) {
+  res.render('beth-skelton')
+})
+app.get("/erin-lyman", function(req, res) {
+  res.render('erin-lyman')
+})
+app.get("/israa-hussein", function(req, res) {
+  res.render('israa-hussein')
+})
+app.get("/chanda-austin", function(req, res) {
+  res.render('chanda-austin')
+})
+app.get("/heather-robertson-devine", function(req, res) {
+  res.render('heather-robertson-devine')
+})
+app.get("/marc-liebman", function(req, res) {
+  res.render('marc-liebman')
+})
 
 app.get("/", function(req, res) {
 
@@ -88,7 +114,7 @@ app.post('/contact', (req, res) => {
 
   // Specify what the email will look like
   const mailOpts = {
-    from: 'tech@eduliber.org', // This is ignored by Gmail
+    from: 'tech@eduliber.org',
     to: 'tech@eduliber.org',
     subject: 'New message from contact form at tylerkrys.ca',
     text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
@@ -101,11 +127,11 @@ app.post('/contact', (req, res) => {
       console.log(error);
       console.log(process.env.EMAIL_USER);
       console.log(process.env.EMAIL_PASS);
-      // res.render('contact-failure') // Show a page indicating failure
+      res.render('contact-failure') // Show a page indicating failure
     }
     else {
       console.log("sent");
-      // res.render('contact-success') // Show a page indicating success
+      res.render('contact-success') // Show a page indicating success
     }
   })
 })
@@ -157,8 +183,8 @@ const stateCodeMap = {
   'Delaware': {
     code: 'DE',
   },
-  'Department of Defense': {
-    code: 'DD',
+  'Department of Defense Education Activity': {
+    code: 'DODEA',
   },
   'District of Columbia': {
     code: 'DC',
@@ -270,6 +296,9 @@ const stateCodeMap = {
   },
   'Utah': {
     code: 'UT',
+  },
+  'U.S. Virgin Islands':{
+    code: 'VI'
   },
   'Vermont': {
     code: 'VT',
