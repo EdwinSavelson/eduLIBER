@@ -405,7 +405,8 @@ console.log(hierarchy.general_resources.children);
 app.get('*', function(req, res){
   res.redirect("/404");
 });
-
+//
+// CHANGE PORT BEFORE DEPLOYMENT
 const port = process.env.PORT || 8080;
 app.listen(port, function() {
   console.log("server started on port " + port)
