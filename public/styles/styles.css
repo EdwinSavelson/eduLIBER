@@ -110,7 +110,14 @@ input[type=submit] {
 
 /* MAP STYLES */
 .seal-images{
-  max-width: 100%;
+width: 10%;
+margin: 2em;
+}
+.seal-columns img:hover{
+  width: 15%;
+}
+.seal-columns{
+  text-align: center;
 }
 
 .map-heading{
