@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <%- include("partials/head") -%>
+  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="/styles/BoardMemberStyles.css">
+
+</head>
+
+
+<body>
+
+  <%- include("partials/header") -%>
+
+  <section id="Board-Member-Info">
+
+    <div class="row body-margins">
+
+      <div class="text-center col-lg-12">
+        <% if( boardMemberData[name].img){ %>
+        <img class="board-member-image .img-fluid" src="/images/eduliberheadshots/<%= boardMemberData[name].img %>" alt=<%= boardMemberData[name].name %>>
+        <%  } %>
+        <h2 style="padding-top: 1em;"><%= boardMemberData[name].name %></h2>
+        <hr>
+      </div>
+      <div class="col-lg-12">
+        <p> &nbsp &nbsp &nbsp &nbsp &nbsp<%= boardMemberData[name].bio %></p>
+      </div>
+    </div>
+
+  </section>
+
+  <%- include("partials/footer") -%>
+
+  <!--
+   NO JS DOC
+  <script src="index.js"></script> -->
+
+
+</html>
