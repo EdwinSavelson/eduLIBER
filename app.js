@@ -5,7 +5,7 @@ const _ = require('lodash')
 require('dotenv').config();
 const nodemailer = require("nodemailer");
 const request = require("request");
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
+// process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
 
 // RECAPTCHA SITE KEY 6Ld-INoZAAAAACsWVusp03WAfJUuE3u2JHtxWSfs
