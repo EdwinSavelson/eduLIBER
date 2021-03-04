@@ -136,6 +136,7 @@ app.get("/", function(req, res) {
   //           // console.log(n);
   //           if (n) {
   //             errorLinks.push(record);
+  //             console.log(errorLinks);
   //           }
   //
   //         }

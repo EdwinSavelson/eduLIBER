@@ -11,17 +11,28 @@
 <body>
   <%- include("partials/header") -%>
   <!--BIG IMAGE -->
-  <div class="row main-image">
-    <div class="">
-      <div class="col-lg-7 col-md-7 col-sm-12 main-text">
+
+  <div class="no-gutters">
+    <div class="row align-items-center main-image">
+      <div class="col-lg-7 col-md-7 col-sm-12 overlay-text">
         <img src="/images/eduLIBER v1 Big.png" alt="">
+        <h3>Empowering Educators and <br> Influencers of Multilingual Learners<h3/>
+        <a href="#map"><i style="color: grey" class="fas fa-chevron-down fa-2x"></i></a>
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-12 overlay-text right">
         <p>EduLIBER endeavors to help effectively identify culturally appropriate educational tools and programs by providing an open user-centered system and database.</p>
-        <h3>Find ELL Resources</h3>
-        <a href="#search"><i style="color: grey" class="fas fa-chevron-down fa-2x"></i></a>
+        <hr>
       </div>
     </div>
+    <div class="row">
+      <div class="col overlay-text">
+        <h3>Find ELL Resources</h3>
+        <p>Select a State or Territory/Organization to discover ELL resources</p>
+      </div>
+
+    </div>
   </div>
-  </div>
+
 
 
   <!-- SEARCH   -->
@@ -36,8 +47,8 @@
         <input type="submit" id="stateSearchSubmitButton">
       </form>
     </div> -->
-    <!-- MAP -->
-<h3 class="map-heading text-center">States/Territories/Organizations</h3>
+  <!-- MAP -->
+  <section id="map">
     <div class="row map">
 
       <div id="info-box"></div>
@@ -53,7 +64,7 @@
           <a href='/state?myState=Hawaii'>
             <path id="HI" data-info="<div>Hawaii</div>" fill="#D3D3D3"
               d="M407.1,619.3l1.9-3.6l2.3-0.3l0.3,0.8l-2.1,3.1H407.1z M417.3,615.6l6.1,2.6l2.1-0.3l1.6-3.9   l-0.6-3.4l-4.2-0.5l-4,1.8L417.3,615.6z M448,625.6l3.7,5.5l2.4-0.3l1.1-0.5l1.5,1.3l3.7-0.2l1-1.5l-2.9-1.8l-1.9-3.7l-2.1-3.6   l-5.8,2.9L448,625.6z M468.2,634.5l1.3-1.9l4.7,1l0.6-0.5l6.1,0.6l-0.3,1.3l-2.6,1.5l-4.4-0.3L468.2,634.5z M473.5,639.7l1.9,3.9   l3.1-1.1l0.3-1.6l-1.6-2.1l-3.7-0.3V639.7z M480.5,638.5l2.3-2.9l4.7,2.4l4.4,1.1l4.4,2.7v1.9l-3.6,1.8l-4.8,1l-2.4-1.5   L480.5,638.5z M497.1,654.1l1.6-1.3l3.4,1.6l7.6,3.6l3.4,2.1l1.6,2.4l1.9,4.4l4,2.6l-0.3,1.3l-3.9,3.2l-4.2,1.5l-1.5-0.6l-3.1,1.8   l-2.4,3.2l-2.3,2.9l-1.8-0.2l-3.6-2.6l-0.3-4.5l0.6-2.4l-1.6-5.7l-2.1-1.8l-0.2-2.6l2.3-1l2.1-3.1l0.5-1l-1.6-1.8L497.1,654.1z" />
-            </a>
+          </a>
 
           <a href='/state?myState=Alaska'>
             <path id="AK" data-info="<div>Alaska</div>" fill="#D3D3D3"
@@ -148,9 +159,9 @@
               d="M930.6,342l1.1,4.9l1.1,6.9l3.6-2.7l2.3-3.1l2.5-0.6l1.5-1.5l1.8-2.6l1.2,0.6l2.9-0.3l2.6-2.1   l2-1.5l1.8-0.5l1.3,1l2.2,1.1l1.9,1.8l1.4,1.3l-0.1,4.7l-5.7-3.1l-4.5-1.8l-0.2,5.3l-0.5,2.1l-1.6,2.7l-0.6,1.6l-3.1,2.4l-0.5,2.3   l-3.4,0.3l-0.3,3.1l-1.1,5.5h-2.6l-1.3-0.8l-1.6-2.7l-1.8,0.2l-0.3,4.4l-2.1,6.6l-5,10.8l0.8,1.3l-0.2,2.7l-2.1,1.9l-1.5-0.3   l-3.2,2.4l-2.6-1l-1.8,4.7c0,0-3.7,0.8-4.4,1c-0.6,0.2-2.4-1.3-2.4-1.3l-2.4,2.3l-2.6,0.6l-2.9-0.8l-1.3-1.3l-2.2-3l-3.1-2   l-2.6-2.7l-2.9-3.7l-0.6-2.3l-2.6-1.5l-0.8-1.6l-0.2-5.3l2.2-0.1l1.9-0.8l0.2-2.7l1.6-1.5l0.2-5l1-3.9l1.3-0.6l1.3,1.1l0.5,1.8   l1.8-1l0.5-1.6l-1.1-1.8v-2.4l1-1.3l2.3-3.4l1.3-1.5l2.1,0.5l2.3-1.6l3.1-3.4l2.3-3.9l0.3-5.7l0.5-5v-4.7l-1.1-3.1l1-1.5l1.3-1.3   l3.5,19.8l4.6-0.8L930.6,342z" />
 
           </a>
-            <a href='/state?myState=Kentucky'>
-          <path id="KY" data-info="<div>Kentucky</div>" fill="#D3D3D3"
-            d="M895.8,397.8l-2.3,2.7l-4.2,3.6L885,410l-1.8,1.8v2.1l-3.9,2.1l-5.7,3.4l-3.5,0.4l-51.9,4.9   l-15.8,1.8l-4.6,0.5l-3.9,0l-0.2,4.2l-8.2,0.1l-7,0.6l-10.4,0.2l1.9-0.2l2.2-1.8l2.1-1.1l0.2-3.2l0.9-1.8l-1.6-2.5l0.8-1.9l2.3-1.8   l2.1-0.6l2.7,1.3l3.6,1.3l1.1-0.3l0.2-2.3l-1.3-2.4l0.3-2.3l1.9-1.5l2.6-0.6l1.6-0.6l-0.8-1.8l-0.6-1.9l1.1-0.8l1.1-3.3l3-1.7   l5.8-1l3.6-0.5l1.5,1.9l1.8,0.8l1.8-3.2l2.9-1.5l1.9,1.6l0.8,1.1l2.1-0.5l-0.2-3.4l2.9-1.6l1.1-0.8l1.1,1.6h4.7l0.8-2.1l-0.3-2.3   l2.9-3.6l4.7-3.9l0.5-4.5l2.7-0.3l3.9-1.8l2.7-1.9l-0.3-1.9l-1.5-1.5l0.6-2.2l4.1-0.2l2.4-0.8l2.9,1.6l1.6,4.4l5.8,0.3l1.8,1.8   l2.1,0.2l2.4-1.5l3.1,0.5l1.3,1.5l2.7-2.6l1.8-1.3h1.6l0.6,2.7l1.8,1l2.4,2.2l0.2,5.5l0.8,1.6l2.6,1.5l0.6,2.3l2.9,3.7l2.6,2.7   L895.8,397.8z" />
+          <a href='/state?myState=Kentucky'>
+            <path id="KY" data-info="<div>Kentucky</div>" fill="#D3D3D3"
+              d="M895.8,397.8l-2.3,2.7l-4.2,3.6L885,410l-1.8,1.8v2.1l-3.9,2.1l-5.7,3.4l-3.5,0.4l-51.9,4.9   l-15.8,1.8l-4.6,0.5l-3.9,0l-0.2,4.2l-8.2,0.1l-7,0.6l-10.4,0.2l1.9-0.2l2.2-1.8l2.1-1.1l0.2-3.2l0.9-1.8l-1.6-2.5l0.8-1.9l2.3-1.8   l2.1-0.6l2.7,1.3l3.6,1.3l1.1-0.3l0.2-2.3l-1.3-2.4l0.3-2.3l1.9-1.5l2.6-0.6l1.6-0.6l-0.8-1.8l-0.6-1.9l1.1-0.8l1.1-3.3l3-1.7   l5.8-1l3.6-0.5l1.5,1.9l1.8,0.8l1.8-3.2l2.9-1.5l1.9,1.6l0.8,1.1l2.1-0.5l-0.2-3.4l2.9-1.6l1.1-0.8l1.1,1.6h4.7l0.8-2.1l-0.3-2.3   l2.9-3.6l4.7-3.9l0.5-4.5l2.7-0.3l3.9-1.8l2.7-1.9l-0.3-1.9l-1.5-1.5l0.6-2.2l4.1-0.2l2.4-0.8l2.9,1.6l1.6,4.4l5.8,0.3l1.8,1.8   l2.1,0.2l2.4-1.5l3.1,0.5l1.3,1.5l2.7-2.6l1.8-1.3h1.6l0.6,2.7l1.8,1l2.4,2.2l0.2,5.5l0.8,1.6l2.6,1.5l0.6,2.3l2.9,3.7l2.6,2.7   L895.8,397.8z" />
 
           </a>
           <a href='/state?myState=Ohio'>
@@ -313,14 +324,14 @@
 
 
   </section>
-  <div class="row">
+  <!-- <div class="row">
     <div class="seal-columns">
 
       <a href='/state?myState=U.S. Virgin Islands'><img class="seal-images"src="/images/Seal_of_the_United_States_Virgin_Islands.svg" alt="Bureau of Indian Education Seal"></a>
       <a href='/state?myState=Department of Defense Education Activity'><img class="seal-images" src="/images/DoDEA_Logo.jpg" alt=""></a>
       <a href='/state?myState=Bureau of Indian Education'><img class="seal-images" src="/images/BIE.png" alt="Bureau of Indian Education Seal"></a>
     </div>
-  </div>
+  </div> -->
 
 
   <!-- DESKTOP STATE LIST -->
@@ -414,61 +425,171 @@
     <div class="select-box">
       <div class="options-container">
 
-        <a href='/state?myState=Alabama'><div class='option'>Alabama</div></a>
-        <a href='/state?myState=Alaska'><div class='option'> Alaska</div></a>
-        <a href='/state?myState=Arizona'><div class='option'> Arizona</div></a>
-        <a href='/state?myState=Arkansas'><div class='option'> Arkansas</div></a>
-        <a href='/state?myState=Bureau of Indian Education'><div class='option'> Bureau of Indian Education</div></a>
-        <a href='/state?myState=California'><div class='option'> California</div></a>
-        <a href='/state?myState=Colorado'><div class='option'> Colorado</div></a>
-        <a href='/state?myState=Connecticut'><div class='option'> Connecticut</div></a>
-        <a href='/state?myState=Delaware'><div class='option'> Delaware</div></a>
-        <a href='/state?myState=Department of Defense'><div class='option'> Department of Defense</div></a>
-        <a href='/state?myState=District of Columbia'><div class='option'> District of Columbia</div></a>
-        <a href='/state?myState=Florida'><div class='option'> Florida</div></a>
-        <a href='/state?myState=Georgia'><div class='option'> Georgia</div></a>
-        <a href='/state?myState=Hawaii'><div class='option'> Hawaii</div></a>
-        <a href='/state?myState=Idaho'><div class='option'> Idaho</div></a>
-        <a href='/state?myState=Illinois'><div class='option'> Illinois</div></a>
-        <a href='/state?myState=Indiana'><div class='option'> Indiana</div></a>
-        <a href='/state?myState=Iowa'><div class='option'> Iowa</div></a>
-        <a href='/state?myState=Kansas'><div class='option'> Kansas</div></a>
-        <a href='/state?myState=Kentucky'><div class='option'> Kentucky</div></a>
-        <a href='/state?myState=Louisiana'><div class='option'> Louisiana</div></a>
-        <a href='/state?myState=Maine'><div class='option'> Maine</div></a>
-        <a href='/state?myState=Maryland'><div class='option'> Maryland</div></a>
-        <a href='/state?myState=Massachussetts'><div class='option'> Massachussetts</div></a>
-        <a href='/state?myState=Michigan'><div class='option'> Michigan</div></a>
-        <a href='/state?myState=Minnesota'><div class='option'> Minnesota</div></a>
-        <a href='/'><div class='option'> Mississippi</div></a>
-        <a href='/state?myState=Missouri'><div class='option'> Missouri</div></a>
-        <a href='/state?myState=Montana'><div class='option'> Montana</div></a>
-        <a href='/state?myState=Nebraska'><div class='option'> Nebraska</div></a>
-        <a href='/state?myState=Nevada'><div class='option'> Nevada</div></a>
-        <a href='/state?myState=New Hampshire'><div class='option'> New Hampshire</div></a>
-        <a href='/state?myState=New Jersey'><div class='option'> New Jersey</div></a>
-        <a href='/state?myState=New Mexico'><div class='option'> New Mexico</div></a>
-        <a href='/state?myState=New York'><div class='option'> New York</div></a>
-        <a href='/state?myState=North Carolina'><div class='option'> North Carolina</div></a>
-        <a href='/state?myState=North Dakota'><div class='option'> North Dakota</div></a>
-        <a href='/state?myState=Ohio'><div class='option'> Ohio</div></a>
-        <a href='/state?myState=Oklahoma'><div class='option'> Oklahoma</div></a>
-        <a href='/state?myState=Oregon'><div class='option'> Oregon</div></a>
-        <a href='/state?myState=Pennsylvania'><div class='option'> Pennsylvania</div></a>
-        <a href='/state?myState=Puerto Rico'><div class='option'> Puerto Rico</div></a>
-        <a href='/state?myState=Rhode Island'><div class='option'> Rhode Island</div></a>
-        <a href='/state?myState=South Carolina'><div class='option'> South Carolina</div></a>
-        <a href='/state?myState=South Dakota'><div class='option'> South Dakota</div></a>
-        <a href='/state?myState=Tennessee'><div class='option'> Tennessee</div></a>
-        <a href='/state?myState=Texas'><div class='option'> Texas</div></a>
-        <a href='/state?myState=US Virgin Islands'><div class='option'>US Virgin Islands</div></a>
-        <a href='/state?myState=Utah'><div class='option'> Utah</div></a>
-        <a href='/state?myState=Vermont'><div class='option'> Vermont</div></a>
-        <a href='/state?myState=Virginia'><div class='option'> Virginia</div></a>
-        <a href='/state?myState=Washington'><div class='option'> Washington</div></a>
-        <a href='/state?myState=West Virginia'><div class='option'> West Virginia</div></a>
-        <a href='/state?myState=Wisconsin'><div class='option'> Wisconsin</div></a>
-        <a href='/state?myState=Wyoming'><div class='option'> Wyoming</div></a>
+        <a href='/state?myState=Alabama'>
+          <div class='option'>Alabama</div>
+        </a>
+        <a href='/state?myState=Alaska'>
+          <div class='option'> Alaska</div>
+        </a>
+        <a href='/state?myState=Arizona'>
+          <div class='option'> Arizona</div>
+        </a>
+        <a href='/state?myState=Arkansas'>
+          <div class='option'> Arkansas</div>
+        </a>
+        <a href='/state?myState=Bureau of Indian Education'>
+          <div class='option'> Bureau of Indian Education</div>
+        </a>
+        <a href='/state?myState=California'>
+          <div class='option'> California</div>
+        </a>
+        <a href='/state?myState=Colorado'>
+          <div class='option'> Colorado</div>
+        </a>
+        <a href='/state?myState=Connecticut'>
+          <div class='option'> Connecticut</div>
+        </a>
+        <a href='/state?myState=Delaware'>
+          <div class='option'> Delaware</div>
+        </a>
+        <a href='/state?myState=Department of Defense'>
+          <div class='option'> Department of Defense</div>
+        </a>
+        <a href='/state?myState=District of Columbia'>
+          <div class='option'> District of Columbia</div>
+        </a>
+        <a href='/state?myState=Florida'>
+          <div class='option'> Florida</div>
+        </a>
+        <a href='/state?myState=Georgia'>
+          <div class='option'> Georgia</div>
+        </a>
+        <a href='/state?myState=Hawaii'>
+          <div class='option'> Hawaii</div>
+        </a>
+        <a href='/state?myState=Idaho'>
+          <div class='option'> Idaho</div>
+        </a>
+        <a href='/state?myState=Illinois'>
+          <div class='option'> Illinois</div>
+        </a>
+        <a href='/state?myState=Indiana'>
+          <div class='option'> Indiana</div>
+        </a>
+        <a href='/state?myState=Iowa'>
+          <div class='option'> Iowa</div>
+        </a>
+        <a href='/state?myState=Kansas'>
+          <div class='option'> Kansas</div>
+        </a>
+        <a href='/state?myState=Kentucky'>
+          <div class='option'> Kentucky</div>
+        </a>
+        <a href='/state?myState=Louisiana'>
+          <div class='option'> Louisiana</div>
+        </a>
+        <a href='/state?myState=Maine'>
+          <div class='option'> Maine</div>
+        </a>
+        <a href='/state?myState=Maryland'>
+          <div class='option'> Maryland</div>
+        </a>
+        <a href='/state?myState=Massachussetts'>
+          <div class='option'> Massachussetts</div>
+        </a>
+        <a href='/state?myState=Michigan'>
+          <div class='option'> Michigan</div>
+        </a>
+        <a href='/state?myState=Minnesota'>
+          <div class='option'> Minnesota</div>
+        </a>
+        <a href='/'>
+          <div class='option'> Mississippi</div>
+        </a>
+        <a href='/state?myState=Missouri'>
+          <div class='option'> Missouri</div>
+        </a>
+        <a href='/state?myState=Montana'>
+          <div class='option'> Montana</div>
+        </a>
+        <a href='/state?myState=Nebraska'>
+          <div class='option'> Nebraska</div>
+        </a>
+        <a href='/state?myState=Nevada'>
+          <div class='option'> Nevada</div>
+        </a>
+        <a href='/state?myState=New Hampshire'>
+          <div class='option'> New Hampshire</div>
+        </a>
+        <a href='/state?myState=New Jersey'>
+          <div class='option'> New Jersey</div>
+        </a>
+        <a href='/state?myState=New Mexico'>
+          <div class='option'> New Mexico</div>
+        </a>
+        <a href='/state?myState=New York'>
+          <div class='option'> New York</div>
+        </a>
+        <a href='/state?myState=North Carolina'>
+          <div class='option'> North Carolina</div>
+        </a>
+        <a href='/state?myState=North Dakota'>
+          <div class='option'> North Dakota</div>
+        </a>
+        <a href='/state?myState=Ohio'>
+          <div class='option'> Ohio</div>
+        </a>
+        <a href='/state?myState=Oklahoma'>
+          <div class='option'> Oklahoma</div>
+        </a>
+        <a href='/state?myState=Oregon'>
+          <div class='option'> Oregon</div>
+        </a>
+        <a href='/state?myState=Pennsylvania'>
+          <div class='option'> Pennsylvania</div>
+        </a>
+        <a href='/state?myState=Puerto Rico'>
+          <div class='option'> Puerto Rico</div>
+        </a>
+        <a href='/state?myState=Rhode Island'>
+          <div class='option'> Rhode Island</div>
+        </a>
+        <a href='/state?myState=South Carolina'>
+          <div class='option'> South Carolina</div>
+        </a>
+        <a href='/state?myState=South Dakota'>
+          <div class='option'> South Dakota</div>
+        </a>
+        <a href='/state?myState=Tennessee'>
+          <div class='option'> Tennessee</div>
+        </a>
+        <a href='/state?myState=Texas'>
+          <div class='option'> Texas</div>
+        </a>
+        <a href='/state?myState=US Virgin Islands'>
+          <div class='option'>US Virgin Islands</div>
+        </a>
+        <a href='/state?myState=Utah'>
+          <div class='option'> Utah</div>
+        </a>
+        <a href='/state?myState=Vermont'>
+          <div class='option'> Vermont</div>
+        </a>
+        <a href='/state?myState=Virginia'>
+          <div class='option'> Virginia</div>
+        </a>
+        <a href='/state?myState=Washington'>
+          <div class='option'> Washington</div>
+        </a>
+        <a href='/state?myState=West Virginia'>
+          <div class='option'> West Virginia</div>
+        </a>
+        <a href='/state?myState=Wisconsin'>
+          <div class='option'> Wisconsin</div>
+        </a>
+        <a href='/state?myState=Wyoming'>
+          <div class='option'> Wyoming</div>
+        </a>
       </div>
 
       <div class="selected">
@@ -483,5 +604,6 @@
   <%- include("partials/footer") -%>
   <script type="text/javascript" src="/index.js" charset="utf-8"></script>
 </body>
+</section>
 
 </html>
