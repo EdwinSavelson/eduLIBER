@@ -6,13 +6,9 @@
   <%- include("partials/head") -%>
   <script src="https://www.google.com/recaptcha/api.js?render=6Ld-INoZAAAAACsWVusp03WAfJUuE3u2JHtxWSfs"></script>
   <style type="text/css">
-
-      .contact-padding{
-        padding: 2em;
-      }
-
-
-
+    .contact-padding {
+      padding: 2em;
+    }
   </style>
 
   <link rel="stylesheet" href="/styles/styles.css">
@@ -26,46 +22,58 @@
   <%- include("partials/header") -%>
 
   <!--Section: Contact v.2-->
-<section class="mb-4 contact-padding">
-
+  <section class="mb-4 contact-padding">
+<div class="container">
     <!--Section heading-->
     <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
     <!--Section description-->
-    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Want to submit a resource? Please do not hesitate to contact us directly.</p>
-
+    <p class="text-left w-responsive mx-auto mb-2">Do you have any questions? Want to <a href="https://forms.gle/uuWidPPCZymP1NwA8">submit a resource</a>? Please do not hesitate to contact us directly.  Please include your intended recipient in the subject line if applicable.</p>
+    <p class="text-left w-responsive mx-auto">Content/Suggestions: Mia Allen </p>
+    <p class="text-left w-responsive mx-auto">Donations: Erin Lyman </p>
+    <p class="text-left w-responsive mx-auto">Website Feedback: Eddie Savelson</p>
+    <p class="text-left w-responsive mx-auto mb-4">All Other inquiries: Israa Hussein</p>
     <div class="row">
 
-        <!--Grid column-->
-        <div class="col-md-12 mb-md-0 mb-5">
-            <form id="contact-form" action= "/contact" method="POST">
+      <!--Grid column-->
+      <div class="col-md-12 mb-md-0 mb-5">
+        <form id="contact-form" action="/contact" method="POST">
 
-                <!--Grid row-->
-                <div class="row">
+          <!--Grid row-->
+          <div class="row">
 
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="name" name="name" class="form-control" required>
-                            <label for="name" class="">Your name</label>
-                        </div>
-                    </div>
-                    <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-md-6">
+              <div class="md-form mb-0">
+                <input type="text" id="name" name="name" class="form-control" required>
+                <label for="name" class="">Your name</label>
+              </div>
+            </div>
+            <!--Grid column-->
 
-                    <!--Grid column-->
-                    <div class="col-md-6">
-                        <div class="md-form mb-0">
-                            <input type="text" id="email" name="email" class="form-control" required>
-                            <label for="email" class="">Your email</label>
-                        </div>
-                    </div>
-                    <!--Grid column-->
+            <!--Grid column-->
+            <div class="col-md-6">
+              <div class="md-form mb-0">
+                <input type="text" id="email" name="email" class="form-control" required>
+                <label for="email" class="">Your email</label>
+              </div>
+            </div>
+            <!--Grid column-->
 
-                </div>
-                <!--Grid row-->
+            <!--Grid column-->
+            <div class="col-md-6">
+              <div class="md-form mb-0">
+                <input type="text" id="subject" name="subject" class="form-control" required>
+                <label for="email" class="">Subject</label>
+              </div>
+            </div>
+            <!--Grid column-->
 
-                <!--Grid row-->
-                <!-- SUBJECT -->
-                <!-- <div class="row">
+          </div>
+          <!--Grid row-->
+
+          <!--Grid row-->
+          <!-- SUBJECT -->
+          <!-- <div class="row">
                     <div class="col-md-12">
                         <div class="md-form mb-0">
                             <input type="text" id="subject" name="subject" class="form-control">
@@ -73,47 +81,49 @@
                         </div>
                     </div>
                 </div> -->
-                <!--Grid row-->
+          <!--Grid row-->
 
-                <!--Grid row-->
-                <div class="row">
+          <!--Grid row-->
+          <div class="row">
 
-                    <!--Grid column-->
-                    <div class="col-md-12">
+            <!--Grid column-->
+            <div class="col-md-12">
 
-                        <div class="md-form">
-                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
-                            <label for="message">Your message</label>
-                        </div>
+              <div class="md-form">
+                <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                <label for="message">Your message</label>
+              </div>
 
-                    </div>
-                </div>
-                <!--Grid row-->
-<button class="btn"type="submit">Submit</button>
-            </form>
+            </div>
+          </div>
+          <!--Grid row-->
+          <button class="btn" type="submit">Submit</button>
+        </form>
 
-            <div class="text-center text-md-left">
-                <!-- <button class="btn btn-primary g-recaptcha" data-sitekey="reCAPTCHA_site_key"
+        <div class="text-center text-md-left">
+          <!-- <button class="btn btn-primary g-recaptcha" data-sitekey="reCAPTCHA_site_key"
         data-callback='onSubmit'
         data-action='submit'onclick="document.getElementById('contact-form').submit();">Send</button>
             </div> -->
 
-            <div class="status"></div>
+          <div class="status"></div>
         </div>
         <!--Grid column-->
 
 
-    </div>
+      </div>
 
-</section>
-<!--Section: Contact v.2-->
+
+</div>
+  </section>
+  <!--Section: Contact v.2-->
 
   <%- include("partials/footer") -%>
   <script>
-   function onSubmit(token) {
-     document.getElementById("demo-form").submit();
-   }
- </script>
+    function onSubmit(token) {
+      document.getElementById("demo-form").submit();
+    }
+  </script>
 
 
 </body>

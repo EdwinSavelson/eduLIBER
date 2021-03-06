@@ -195,7 +195,7 @@ app.post('/contact', (req, res) => {
   const mailOpts = {
     from: 'tech@eduliber.org',
     to: 'tech@eduliber.org',
-    subject: 'New message from contact form at tylerkrys.ca',
+    subject: `${req.body.subject}`,
     text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
   }
 
