@@ -34,6 +34,7 @@ font-family: 'Josefin Sans', sans-serif; */
   text-align: center;
   background-color: rgb(256, 256, 256, 0.5);
   padding: 2em 4em 2em;
+  height: 100%;
 }
 
 .right{
@@ -41,7 +42,7 @@ font-family: 'Josefin Sans', sans-serif; */
 }
 .overlay-text img{
   max-height: 10em;
-  margin: 2em 2em;
+  margin-bottom: 1.3em;
 }
 
 /* SEARCH IS HIDDEN*/

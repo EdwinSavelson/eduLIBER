@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <%- include("partials/head") -%>
+
+    <style type="text/css">
+        .heading-image {
+            background-image: url("/images/mission_background.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center bottom;
+            background-size: cover;
+            position: relative;
+        }
+
+        .mission-head {
+            color: black;
+            padding: 3em 1em;
+            text-align: center;
+        }
+
+        .mission-head-overlay {
+            background-color: rgb(256, 256, 256);
+            opacity: 0.8;
+            padding: 2em 1em;
+        }
+
+        .about-text {
+            text-align: left;
+            padding: 0 5% 0;
+        }
+    </style>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+
+</head>
+
+<body>
+    <%- include("partials/header") -%>
+
+    <div class="container-fluid">
+        <div class="row heading-image">
+            <div class="col-1">
+
+            </div>
+            <div class="col-10 mission-head">
+                <div class="mission-head-overlay">
+                    <h2>FAQs</h2>
+                    <p style="font-size: .9em;">EduLIBER endeavors to help effectively identify culturally appropriate
+                        educational tools and programs by providing an open user-centered system and database.
+                    </p>
+                </div>
+            </div>
+            <div class="col-1">
+            </div>
+        </div>
+
+        <div class="container pt-4">
+            <div class="row">
+                <div class="col-10 ">
+                    <div class="about-text">
+                        <h3>Who are you?</h3>
+                        <p>EduLIBER is a non profit organization run by multilingual, multicultural women. <br> The
+                            board consists of educators, publishers, students concerned about equity and access for
+                            students in United States k12 schools.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10 ">
+                    <div class="about-text">
+                        <h3>What does eduLIBER mean?</h3>
+                        <p><strong>Edu-</strong> Education <br>
+                            <strong>LIBER-</strong> FREE <br>
+                            Quite simply EduLIBER is a 1 stop location for educators, district administrators looking at both resources and curriculum. <br>
+                            Informed decision makers ensure ALL students have equitable access.
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <%- include("partials/footer") -%>
+</body>

@@ -12,24 +12,29 @@
   <%- include("partials/header") -%>
   <!--BIG IMAGE -->
 
-  <div class="no-gutters">
+  <div class="container-fluid">
     <div class="row align-items-center main-image">
-      <div class="col-lg-7 col-md-7 col-sm-12 overlay-text">
+      <div class="col-lg-5 col-md-5 col-sm-12 overlay-text">
+        <div class="class align-items-center">
         <img src="/images/eduLIBER v1 Big.png" alt="">
-        <h3>Empowering Educators and <br> Influencers of Multilingual Learners<h3/>
-        <a href="#map"><i style="color: grey" class="fas fa-chevron-down fa-2x"></i></a>
+        <h3>Empowering Educators and <br> Influencers of Multilingual Learners
+          <h3/>
+          </div>
+          <a href="#map"><i style="color: grey" class="fas fa-chevron-down fa-2x"></i></a>
       </div>
-      <div class="col-lg-5 col-md-5 col-sm-12 overlay-text right">
-        <p>EduLIBER endeavors to help effectively identify culturally appropriate educational tools and programs by providing an open user-centered system and database.</p>
-        <hr>
+      <div class="col-lg-7 col-md-7 col-sm-12 overlay-text right">
+        <div class="align-middle">
+          <p><i>EduLIBER endeavors to help effectively identify culturally appropriate educational tools and programs by providing an open user-centered system and database.</i></p>
+          <hr>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col overlay-text">
-        <h3>Find ELL Resources</h3>
-        <p>Select a State or Territory/Organization to discover ELL resources</p>
-      </div>
+  </div>
 
+  <div class="row">
+    <div class="col overlay-text">
+      <h3><strong>Find ELL Resources</strong></h3>
+      <p>Select a State or Territory/Organization to discover ELL resources</p>
     </div>
   </div>
 
@@ -338,86 +343,87 @@
   <section id="states-list">
 
     <h3 class="desktop-states">States</h3>
-    <div class="row desktop-states">
+    <div class="container-fluid desktop-states">
+      <div class="row">
+        <div class="col-3 col-sm states-columns">
 
-      <div class="col-3 col-sm states-columns">
+          <ul class="list-unstyled text-small">
+            <li><a class='text-muted' href='/state?myState=Alabama'>Alabama</li>
+            <li><a class='text-muted' href='/state?myState=Alaska'>Alaska</li>
+            <li><a class='text-muted' href='/state?myState=American Samoa'>American Samoa</li>
+            <li><a class='text-muted' href='/state?myState=Arizona'>Arizona</li>
+            <li><a class='text-muted' href='/state?myState=Arkansas'>Arkansas</li>
+            <li><a class='text-muted' href='/state?myState=Bureau of Indian Education'>Bureau of Indian Education</li>
+            <li><a class='text-muted' href='/state?myState=California'>California</li>
+            <li><a class='text-muted' href='/state?myState=Colorado'>Colorado</li>
+            <li><a class='text-muted' href='/state?myState=Connecticut'>Connecticut</li>
+            <li><a class='text-muted' href='/state?myState=Delaware'>Delaware</li>
+            <li><a class='text-muted' href='/state?myState=Department of Defense'>Department of Defense</li>
+            <li><a class='text-muted' href='/state?myState=District of Columbia'>District of Columbia</li>
+            <li><a class='text-muted' href='/state?myState=Florida'>Florida</li>
 
-        <ul class="list-unstyled text-small">
-          <li><a class='text-muted' href='/state?myState=Alabama'>Alabama</li>
-          <li><a class='text-muted' href='/state?myState=Alaska'>Alaska</li>
-          <li><a class='text-muted' href='/state?myState=American Samoa'>American Samoa</li>
-          <li><a class='text-muted' href='/state?myState=Arizona'>Arizona</li>
-          <li><a class='text-muted' href='/state?myState=Arkansas'>Arkansas</li>
-          <li><a class='text-muted' href='/state?myState=Bureau of Indian Education'>Bureau of Indian Education</li>
-          <li><a class='text-muted' href='/state?myState=California'>California</li>
-          <li><a class='text-muted' href='/state?myState=Colorado'>Colorado</li>
-          <li><a class='text-muted' href='/state?myState=Connecticut'>Connecticut</li>
-          <li><a class='text-muted' href='/state?myState=Delaware'>Delaware</li>
-          <li><a class='text-muted' href='/state?myState=Department of Defense'>Department of Defense</li>
-          <li><a class='text-muted' href='/state?myState=District of Columbia'>District of Columbia</li>
-          <li><a class='text-muted' href='/state?myState=Florida'>Florida</li>
-
-        </ul>
-      </div>
-      <div class="col-3 col-sm states-columns">
-        <ul class="list-unstyled text-small">
-          <li><a class='text-muted' href='/state?myState=Georgia'>Georgia</li>
-          <li><a class='text-muted' href='/state?myState=Guam'>Guam</li>
-          <li><a class='text-muted' href='/state?myState=Hawaii'>Hawaii</li>
-          <li><a class='text-muted' href='/state?myState=Idaho'>Idaho</li>
-          <li><a class='text-muted' href='/state?myState=Illinois'>Illinois</li>
-          <li><a class='text-muted' href='/state?myState=Indiana'>Indiana</li>
-          <li><a class='text-muted' href='/state?myState=Iowa'>Iowa</li>
-          <li><a class='text-muted' href='/state?myState=Kansas'>Kansas</li>
-          <li><a class='text-muted' href='/state?myState=Kentucky'>Kentucky</li>
-          <li><a class='text-muted' href='/state?myState=Louisiana'>Louisiana</li>
-          <li><a class='text-muted' href='/state?myState=Maine'>Maine</li>
-          <li><a class='text-muted' href='/state?myState=Maryland'>Maryland</li>
-          <li><a class='text-muted' href='/state?myState=Massachussetts'>Massachussetts</li>
-          <li><a class='text-muted' href='/state?myState=Michigan'>Michigan</li>
-          <li><a class='text-muted' href='/state?myState=Minnesota'>Minnesota</li>
-          <li><a class='text-muted' href=''>Mississippi</li>
-        </ul>
-      </div>
+          </ul>
+        </div>
+        <div class="col-3 col-sm states-columns">
+          <ul class="list-unstyled text-small">
+            <li><a class='text-muted' href='/state?myState=Georgia'>Georgia</li>
+            <li><a class='text-muted' href='/state?myState=Guam'>Guam</li>
+            <li><a class='text-muted' href='/state?myState=Hawaii'>Hawaii</li>
+            <li><a class='text-muted' href='/state?myState=Idaho'>Idaho</li>
+            <li><a class='text-muted' href='/state?myState=Illinois'>Illinois</li>
+            <li><a class='text-muted' href='/state?myState=Indiana'>Indiana</li>
+            <li><a class='text-muted' href='/state?myState=Iowa'>Iowa</li>
+            <li><a class='text-muted' href='/state?myState=Kansas'>Kansas</li>
+            <li><a class='text-muted' href='/state?myState=Kentucky'>Kentucky</li>
+            <li><a class='text-muted' href='/state?myState=Louisiana'>Louisiana</li>
+            <li><a class='text-muted' href='/state?myState=Maine'>Maine</li>
+            <li><a class='text-muted' href='/state?myState=Maryland'>Maryland</li>
+            <li><a class='text-muted' href='/state?myState=Massachussetts'>Massachussetts</li>
+            <li><a class='text-muted' href='/state?myState=Michigan'>Michigan</li>
+            <li><a class='text-muted' href='/state?myState=Minnesota'>Minnesota</li>
+            <li><a class='text-muted' href=''>Mississippi</li>
+          </ul>
+        </div>
 
 
-      <div class="col-3 col-sm states-columns">
-        <ul class="list-unstyled text-small">
-          <li><a class='text-muted' href='/state?myState=Missouri'>Missouri</li>
-          <li><a class='text-muted' href='/state?myState=Montana'>Montana</li>
-          <li><a class='text-muted' href='/state?myState=Nebraska'>Nebraska</li>
-          <li><a class='text-muted' href='/state?myState=Nevada'>Nevada</li>
-          <li><a class='text-muted' href='/state?myState=New Hampshire'>New Hampshire</li>
-          <li><a class='text-muted' href='/state?myState=New Jersey'>New Jersey</li>
-          <li><a class='text-muted' href='/state?myState=New Mexico'>New Mexico</li>
-          <li><a class='text-muted' href='/state?myState=New York'>New York</li>
-          <li><a class='text-muted' href='/state?myState=North Carolina'>North Carolina</li>
-          <li><a class='text-muted' href='/state?myState=North Dakota'>North Dakota</li>
-          <li><a class='text-muted' href='/state?myState=Northern Mariana Islands'>Northern Mariana Islands</li>
-          <li><a class='text-muted' href='/state?myState=Ohio'>Ohio</li>
-          <li><a class='text-muted' href='/state?myState=Oklahoma'>Oklahoma</li>
-          <li><a class='text-muted' href='/state?myState=Oregon'>Oregon</li>
-        </ul>
-      </div>
+        <div class="col-3 col-sm states-columns">
+          <ul class="list-unstyled text-small">
+            <li><a class='text-muted' href='/state?myState=Missouri'>Missouri</li>
+            <li><a class='text-muted' href='/state?myState=Montana'>Montana</li>
+            <li><a class='text-muted' href='/state?myState=Nebraska'>Nebraska</li>
+            <li><a class='text-muted' href='/state?myState=Nevada'>Nevada</li>
+            <li><a class='text-muted' href='/state?myState=New Hampshire'>New Hampshire</li>
+            <li><a class='text-muted' href='/state?myState=New Jersey'>New Jersey</li>
+            <li><a class='text-muted' href='/state?myState=New Mexico'>New Mexico</li>
+            <li><a class='text-muted' href='/state?myState=New York'>New York</li>
+            <li><a class='text-muted' href='/state?myState=North Carolina'>North Carolina</li>
+            <li><a class='text-muted' href='/state?myState=North Dakota'>North Dakota</li>
+            <li><a class='text-muted' href='/state?myState=Northern Mariana Islands'>Northern Mariana Islands</li>
+            <li><a class='text-muted' href='/state?myState=Ohio'>Ohio</li>
+            <li><a class='text-muted' href='/state?myState=Oklahoma'>Oklahoma</li>
+            <li><a class='text-muted' href='/state?myState=Oregon'>Oregon</li>
+          </ul>
+        </div>
 
-      <div class="col-3 col-sm states-columns">
-        <ul class="list-unstyled text-small">
-          <li><a class='text-muted' href='/state?myState=Pennsylvania'>Pennsylvania</li>
-          <li><a class='text-muted' href='/state?myState=Puerto Rico'>Puerto Rico</li>
-          <li><a class='text-muted' href='/state?myState=Rhode Island'>Rhode Island</li>
-          <li><a class='text-muted' href='/state?myState=South Carolina'>South Carolina</li>
-          <li><a class='text-muted' href='/state?myState=South Dakota'>South Dakota</li>
-          <li><a class='text-muted' href='/state?myState=Tennessee'>Tennessee</li>
-          <li><a class='text-muted' href='/state?myState=Texas'>Texas</li>
-          <li><a class='text-muted' href='/state?myState=Utah'>Utah</li>
-          <li><a class='text-muted' href='/state?myState=Vermont'>Vermont</li>
-          <li><a class='text-muted' href='/state?myState=Virgin Islands'>Virgin Islands</li>
-          <li><a class='text-muted' href='/state?myState=Virginia'>Virginia</li>
-          <li><a class='text-muted' href='/state?myState=Washington'>Washington</li>
-          <li><a class='text-muted' href='/state?myState=West Virginia'>West Virginia</li>
-          <li><a class='text-muted' href='/state?myState=Wisconsin'>Wisconsin</li>
-          <li><a class='text-muted' href='/state?myState=Wyoming'>Wyoming</li>
-        </ul>
+        <div class="col-3 col-sm states-columns">
+          <ul class="list-unstyled text-small">
+            <li><a class='text-muted' href='/state?myState=Pennsylvania'>Pennsylvania</li>
+            <li><a class='text-muted' href='/state?myState=Puerto Rico'>Puerto Rico</li>
+            <li><a class='text-muted' href='/state?myState=Rhode Island'>Rhode Island</li>
+            <li><a class='text-muted' href='/state?myState=South Carolina'>South Carolina</li>
+            <li><a class='text-muted' href='/state?myState=South Dakota'>South Dakota</li>
+            <li><a class='text-muted' href='/state?myState=Tennessee'>Tennessee</li>
+            <li><a class='text-muted' href='/state?myState=Texas'>Texas</li>
+            <li><a class='text-muted' href='/state?myState=Utah'>Utah</li>
+            <li><a class='text-muted' href='/state?myState=Vermont'>Vermont</li>
+            <li><a class='text-muted' href='/state?myState=Virgin Islands'>Virgin Islands</li>
+            <li><a class='text-muted' href='/state?myState=Virginia'>Virginia</li>
+            <li><a class='text-muted' href='/state?myState=Washington'>Washington</li>
+            <li><a class='text-muted' href='/state?myState=West Virginia'>West Virginia</li>
+            <li><a class='text-muted' href='/state?myState=Wisconsin'>Wisconsin</li>
+            <li><a class='text-muted' href='/state?myState=Wyoming'>Wyoming</li>
+          </ul>
+        </div>
       </div>
     </div>
     <!-- MOBILE STATE LIST -->

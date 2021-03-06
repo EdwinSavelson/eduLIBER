@@ -92,6 +92,10 @@ app.get("/board/:name", function(req, res) {
   // console.log(boardMemberData[name]);
 })
 
+app.get("/faqs",function(req,res){
+  res.render("faqs");
+})
+
 app.get("/", function(req, res) {
 
   res.render('home');
