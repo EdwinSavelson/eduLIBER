@@ -5,10 +5,12 @@ const _ = require('lodash')
 require('dotenv').config();
 const nodemailer = require("nodemailer");
 const request = require("request");
-// process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 
 // REQUIRE DATA FOR BOARD MEMBER PAGE
 const boardMemberData = require("./public/boardMemberData.js");
+// REQUIRE DATA FOR STATE CODES
+const stateCodeMap = require("./public/stateCodeMapData.js");
 
 // RECAPTCHA SITE KEY 6Ld-INoZAAAAACsWVusp03WAfJUuE3u2JHtxWSfs
 
@@ -17,7 +19,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static(__dirname + "/public"));
 app.set('view engine', 'ejs');
-
 
 var stateCode = '';
 
@@ -29,7 +30,9 @@ const base = new Airtable({
 }).base('appOrPuThUPb5ioAq');
 
 
-app.get("state", function(req, res) {
+
+//================ROUTES====================
+app.get("state", function (req, res) {
 
 
   res.render('state_template', {
@@ -40,12 +43,12 @@ app.get("state", function(req, res) {
 
 })
 
-app.get("/board", function(req, res) {
+app.get("/board", function (req, res) {
   res.render('boardmembers')
 })
 
 
-app.get("/board/:name", function(req, res) {
+app.get("/board/:name", function (req, res) {
   var name = req.params.name;
   res.render("board-member-template", {
     boardMemberData,
@@ -54,11 +57,11 @@ app.get("/board/:name", function(req, res) {
   // console.log(boardMemberData[name]);
 })
 
-app.get("/faqs",function(req,res){
+app.get("/faqs", function (req, res) {
   res.render("faqs");
 })
 
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
 
   res.render('home');
 
@@ -93,32 +96,32 @@ app.get("/", function(req, res) {
   //
   //     const errorLinks = [];
   //     recordLinks.forEach(record => {
-  //       request(record, function(error, response, body) {
-  //         // console.error("error:", error);
-  //         // console.log("body:", body);
-  //         if (body === undefined || body === null) {} else {
-  //           var lowerBody = body.toLowerCase();
-  //           var n = lowerBody.includes("not found");
-  //           // console.log(n);
-  //           if (n) {
-  //             errorLinks.push(record);
-  //             console.log(errorLinks);
+  //         request(record, function(error, response, body) {
+  //           // console.error("error:", error);
+  //           // console.log("body:", body);
+  //           if (body === undefined || body === null) {} else {
+  //             var lowerBody = body.toLowerCase();
+  //             var n = lowerBody.includes("not found");
+  //             console.log(record);
+  //             if (n) {
+  //               errorLinks.push(record);
+  //               // console.log(errorLinks);
+  //             }
   //           }
+  //         })
   //
-  //         }
-  //
-  //       })
   //     })
-  //
   //   })
-  //
+  //   console.log(errorLinks);
+  //   console.log("end");
   // }
-  //
   // testStateLinks();
+
 
 })
 
-app.post("/", function(req, res) {
+
+app.post("/", function (req, res) {
   var state = req.body.myState;
   stateCode = state;
 
@@ -128,15 +131,15 @@ app.post("/", function(req, res) {
   res.redirect("/");
 })
 
-app.get("/404", function(req, res) {
+app.get("/404", function (req, res) {
   res.render('404')
 })
 
-app.get("/mission_statement", function(req, res) {
+app.get("/mission_statement", function (req, res) {
   res.render('mission_statement')
 })
 
-app.get("/contact", function(req, res) {
+app.get("/contact", function (req, res) {
   res.render('contact')
 })
 
@@ -176,7 +179,7 @@ app.post('/contact', (req, res) => {
   })
 })
 
-app.get('/state', async function(req, res) {
+app.get('/state', async function (req, res) {
 
   // TODO: to Lowercase state name
   const stateCode = stateCodeMap[req.query.myState] ?
@@ -192,173 +195,6 @@ app.get('/state', async function(req, res) {
 
 })
 
-const stateCodeMap = {
-  'Alabama': {
-    code: 'AL',
-  },
-  'Alaska': {
-    code: 'AK',
-  },
-  'American Samoa': {
-    code: 'AS',
-  },
-  'Arizona': {
-    code: 'AZ',
-  },
-  'Arkansas': {
-    code: 'AR',
-  },
-  'Bureau of Indian Education': {
-    code: 'BIE',
-  },
-  'California': {
-    code: 'CA',
-  },
-  'Colorado': {
-    code: 'CO',
-  },
-  'Connecticut': {
-    code: 'CT',
-  },
-  'Delaware': {
-    code: 'DE',
-  },
-  'Department of Defense Education Activity': {
-    code: 'DODEA',
-  },
-  'District of Columbia': {
-    code: 'DC',
-  },
-  'Florida': {
-    code: 'FL',
-  },
-  'Georgia': {
-    code: 'GA',
-  },
-  'Hawaii': {
-    code: 'HI',
-  },
-  'Idaho': {
-    code: 'ID',
-  },
-  'Illinois': {
-    code: 'IL',
-  },
-  'Indiana': {
-    code: 'IN',
-  },
-  'Iowa': {
-    code: 'IA',
-  },
-  'Kansas': {
-    code: 'KS',
-  },
-  'Kentucky': {
-    code: 'KY',
-  },
-  'Louisiana': {
-    code: 'LA',
-  },
-  'Maine': {
-    code: 'ME',
-  },
-  'Maryland': {
-    code: 'MD',
-  },
-  'Massachusetts': {
-    code: 'MA',
-  },
-  'Michigan': {
-    code: 'MI',
-  },
-  'Minnesota': {
-    code: 'MN',
-  },
-  'Mississippi': {
-    code: 'MS',
-  },
-  'Missouri': {
-    code: 'MO',
-  },
-  'Montana': {
-    code: 'MT',
-  },
-  'Nebraska': {
-    code: 'NE',
-  },
-  'Nevada': {
-    code: 'NV',
-  },
-  'New Hampshire': {
-    code: 'NH',
-  },
-  'New Jersey': {
-    code: 'NJ',
-  },
-  'New Mexico': {
-    code: 'NM',
-  },
-  'New York': {
-    code: 'NY',
-  },
-  'North Carolina': {
-    code: 'NC',
-  },
-  'North Dakota': {
-    code: 'ND',
-  },
-  'Ohio': {
-    code: 'OH',
-  },
-  'Oklahoma': {
-    code: 'OK',
-  },
-  'Oregon': {
-    code: 'OR',
-  },
-  'Pennsylvania': {
-    code: 'PA',
-  },
-  'Rhode Island': {
-    code: 'RI',
-  },
-  'South Carolina': {
-    code: 'SC',
-  },
-  'South Dakota': {
-    code: 'SD',
-  },
-  'Tennessee': {
-    code: 'TN',
-  },
-  'Texas': {
-    code: 'TX',
-  },
-  'Utah': {
-    code: 'UT',
-  },
-  'U.S. Virgin Islands': {
-    code: 'VI'
-  },
-  'Vermont': {
-    code: 'VT',
-  },
-  'Virginia': {
-    code: 'VA',
-  },
-  'Washington': {
-    code: 'WA',
-  },
-  'West Virginia': {
-    code: 'WV',
-  },
-  'Wisconsin': {
-    code: 'WI',
-  },
-  'Wyoming': {
-    code: 'WY',
-  },
-}
 
 async function renderResourcesForState(stateCode, response, template) {
   let allRecords = [];
@@ -442,12 +278,12 @@ async function renderResourcesForState(stateCode, response, template) {
   });
 }
 
-app.get('*', function(req, res) {
+app.get('*', function (req, res) {
   res.redirect("/404");
 });
-//
+
 // CHANGE PORT BEFORE DEPLOYMENT
-const port = process.env.PORT || 8080;
-app.listen(port, function() {
+const port = process.env.PORT || 8081;
+app.listen(port, function () {
   console.log("server started on port " + port)
 })
