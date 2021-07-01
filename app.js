@@ -32,6 +32,11 @@ const base = new Airtable({
 
 
 //================ROUTES====================
+
+app.get("content-review", function (req, res){
+res.render('content-review')
+});
+
 app.get("state", function (req, res) {
 
 
@@ -116,15 +121,12 @@ app.get("/", function (req, res) {
   //   console.log("end");
   // }
   // testStateLinks();
-
-
 })
 
 
 app.post("/", function (req, res) {
   var state = req.body.myState;
   stateCode = state;
-
 
   console.log(state);
 
@@ -273,7 +275,7 @@ async function renderResourcesForState(stateCode, response, template) {
     }
 
     response.render(template, result);
-    console.log(hierarchy.general_resources.children);
+    console.log(hierarchy);
 
   });
 }

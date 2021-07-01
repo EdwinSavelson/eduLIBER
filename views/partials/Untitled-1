@@ -1,0 +1,26 @@
+<div class="col-lg-2 col-sm-3 text-center">
+  <a style="text-decoration: none; color: #4F3B2D" href="https://www2.ed.gov/about/offices/list/oela/index.html">
+    <img style="max-width: 100%" src="/images/oela.jpeg" alt="OELA Logo">
+    <!-- <p>OELA</p> -->
+  </a>
+</div>
+<div class="col-lg-2 col-sm-3 text-center">
+  <a style="text-decoration: none; color: #4F3B2D" href="https://www.ncela.ed.gov/">
+    <img style="max-width: 100%" src="/images/ncela.png" alt="NCELA Logo">
+    <!-- <p>NCELA</p> -->
+  </a>
+</div>
+<div class="col-lg-2 col-sm-3 text-center align-self-center">
+  <a style="text-decoration: none; color: #4F3B2D" href="https://www.wested.org/">
+    <img style="max-width: 100%" src="/images/wested.png" alt="WestEd Logo">
+    <!-- <p>WestEd</p> -->
+  </a>
+</div>
+
+<div class="col-lg-2 col-sm-3 text-center align-self-center">
+  <a style="text-decoration: none; color: #4F3B2D" href="https://wested.gov/"></a>
+
+  <img style="max-width: 100%;" src="/images/ColorinColoradologo.png" alt="ColorinColorado Logo">
+  <!-- <p>WestEd</p> -->
+</a>
+</div> 
