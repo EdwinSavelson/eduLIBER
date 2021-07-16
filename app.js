@@ -33,9 +33,9 @@ const base = new Airtable({
 
 //================ROUTES====================
 
-app.get("content-review", function (req, res){
-res.render('content-review')
-});
+app.get("/content-review", function (req, res) {
+  res.render("content-review");
+})
 
 app.get("state", function (req, res) {
 
