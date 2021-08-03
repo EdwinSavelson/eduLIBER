@@ -12,7 +12,7 @@ const boardMemberData = require("./public/boardMemberData.js");
 // REQUIRE DATA FOR STATE CODES
 const stateCodeMap = require("./public/stateCodeMapData.js");
 // REQUIRE DATA FOR TEST REVIEW
-const badBlogVariable = require("/Users/edwinsavelson/Documents/Development-Projects/eduLIBER/testBlog.js");
+const badBlogVariable = require("./testBlog");
 //GETS RID OF THE WEIRD testBlogData.testBlogData.name THING
 const testBlogData = badBlogVariable.testBlogData;
 
