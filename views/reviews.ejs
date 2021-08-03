@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <%- include("partials/head") -%>
+
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="stylesheet" href="/styles/content-review-styles.css">
+</head>
+
+
+
+<style>
+    body,
+    p,
+    h1,
+    h2,
+    h3,
+    s h4 {
+        color: #595959;
+    }
+
+    .grey-heading {
+        background-color: #CCCCCC;
+        padding: .3em 1em .1em;
+        margin-bottom: .5em;
+    }
+
+    .article-logo {
+        max-width: 100%;
+    }
+
+
+    .row:hover {
+        box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    }
+
+    .row-background {
+        background-color: white;
+    }
+</style>
+
+<body>
+    <%- include("partials/header") -%>
+
+    <!-- MAIN SECTION -->
+
+
+    <div class="container-fluid pt-3 pb-3">
+        <div class="container introduction">
+
+            <% testBlogData.reviews.forEach(function(review){ %>
+            <div class="row justify-content-md-center border p-4 row-background">
+                <div class="col-lg-4 col-sm mb-4">
+                    <img class="article-logo" src="images/Language Tree Logo.png" alt="">
+                </div>
+
+                <div class="col-lg-6 col-sm">
+                    <a target="_blank" href=<%= testBlogData.link %>>
+                        <% if(review.name){ %>
+                        <h3><%= review.name %></h3>
+                            <% } %>
+                    </a>
+                    <p>
+                        Level: <%= review.level %><br>
+                        Format: <%= review.format %></p>
+                </div>
+
+            </div>
+            <hr>
+            <% }); %>
+
+        </div>
+    </div>
+
+
+
+    <!-- FOOTER -->
+    <%- include("partials/footer") -%>
+    <script type="text/javascript" src="/index.js" charset="utf-8"></script>
+</body>
+</section>
+
+</html>

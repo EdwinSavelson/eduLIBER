@@ -11,6 +11,10 @@ process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
 const boardMemberData = require("./public/boardMemberData.js");
 // REQUIRE DATA FOR STATE CODES
 const stateCodeMap = require("./public/stateCodeMapData.js");
+// REQUIRE DATA FOR TEST REVIEW
+const badBlogVariable = require("/Users/edwinsavelson/Documents/Development-Projects/eduLIBER/testBlog.js");
+//GETS RID OF THE WEIRD testBlogData.testBlogData.name THING
+const testBlogData = badBlogVariable.testBlogData;
 
 // RECAPTCHA SITE KEY 6Ld-INoZAAAAACsWVusp03WAfJUuE3u2JHtxWSfs
 
@@ -36,6 +40,55 @@ const base = new Airtable({
 app.get("/content-review", function (req, res) {
   res.render("content-review");
 })
+
+app.get("/test-review", function (req, res) {
+  res.render("test-review-template", {
+    testBlogData
+  });
+  console.log(testBlogData);
+})
+
+app.get("/reviews/:review", function (req, res) {
+  var reviewRequest = _.trim(req.params.review);
+  //FIX RENDER NOT 3 TIMES
+  //PUT IN ASYNC FUNCTION PLS
+  // var review = testBlogData.reviews.find(review => _.trim(review.name) === reviewRequest);
+  console.log("hi");
+
+    if(review !== undefined){
+      res.render("test-review-template", {
+        review
+      });
+    }
+    else{
+      res.redirect("/404");
+    }
+  });
+
+
+  // testBlogData.reviews.forEach(function(review){
+  //   var name = _.trim(review.name);
+  //   console.log(testBlogData.reviews);
+    
+  //   if(name === reviewRequest){
+  //     res.render("test-review-template", {
+  //       review
+  //     });
+  //   }
+  //   else{
+  //     res.redirect("/404");
+  //   }
+  // });
+  
+  
+
+app.get("/reviews", function (req, res) {
+  res.render("reviews", {
+    testBlogData
+  });
+  console.log(testBlogData);
+})
+
 
 app.get("state", function (req, res) {
 
