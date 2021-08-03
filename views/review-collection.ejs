@@ -21,6 +21,7 @@
         color: #595959;
     }
 
+
     .grey-heading {
         background-color: #CCCCCC;
         padding: .3em 1em .1em;
@@ -46,33 +47,36 @@
 
     <!-- MAIN SECTION -->
 
+    <div class="container-fluid">
+        <div class="pt-4 container-row">
+            <div class="col"><h2>Curriculum Review-</h2></div>
+           
+        </div>
 
+    </div>
     <div class="container-fluid pt-3 pb-3">
-        <a href="http://localhost:8081/reviews/Language%20Tree%20Online">
+        <a href="/content-review">
 
             <div class="container introduction">
 
-                <% testBlogData.reviews.forEach(function(review){ %>
                 <div class="row justify-content-md-center border p-4 row-background">
                     <div class="col-lg-4 col-sm mb-4">
                         <img class="article-logo" src="images/Language Tree Logo.png" alt="">
                     </div>
 
                     <div class="col-lg-6 col-sm">
-                        <a target="_blank" href=<%= testBlogData.link %>>
-                            <% if(review.name){ %>
-                            <h3><%= review.name %></h3>
-                            <% } %>
-                        </a>
+
+                        <h3>Language Tree Online</h3>
+
                         <p>
-                            Level: <%= review.level %><br>
-                            Format: <%= review.format %></p>
+                            Level: Secondary(6-12)<br>
+                            Format: Digital</p>
                     </div>
 
                 </div>
 
                 <hr>
-                <% }); %>
+
 
             </div>
         </a>

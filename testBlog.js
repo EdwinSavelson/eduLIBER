@@ -38,7 +38,7 @@ const testBlogData = {
       ]
     },
     {
-      "name": "Language Tree Online 2",
+      "name": "Thing",
       "logo": "",
       "link": "https://www.languagetreeonline.com",
       "email": "info@language-tree.com",
@@ -78,44 +78,3 @@ const testBlogData = {
 
 }
 exports.testBlogData = testBlogData;
-
-
-// const testBlogData = {
-//   "name": "Language Tree Online",
-//   "logo": "",
-//   "link": "",
-//   "email": "",
-//   "level": "",
-//   "format": "",
-
-//   "sections": [
-//     {
-//       "title": "Something",
-//       "subheadings": [
-//         {
-//           "title": "Something",
-//           "content": "Something"
-//         },
-//         {
-//           "title": "Something",
-//           "content": "Something"
-//         }
-//       ]
-//     },
-//     {
-//       "title": "Something",
-//       "subheadings": [
-//         {
-//           "title": "Something",
-//           "content": "Something"
-//         },
-//         {
-//           "title": "Something",
-//           "content": "Something"
-//         }
-//       ]
-//     }
-//   ]
-
-// }
-// exports.testBlogData = testBlogData;

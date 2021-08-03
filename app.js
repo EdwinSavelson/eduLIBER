@@ -41,6 +41,10 @@ app.get("/content-review", function (req, res) {
   res.render("content-review");
 })
 
+app.get("/review-collection", function (req, res) {
+  res.render("review-collection");
+})
+
 app.get("/test-review", function (req, res) {
   res.render("test-review-template", {
     testBlogData
@@ -48,22 +52,19 @@ app.get("/test-review", function (req, res) {
   console.log(testBlogData);
 })
 
-app.get("/reviews/:review", function (req, res) {
-  var reviewRequest = _.trim(req.params.review);
-  //FIX RENDER NOT 3 TIMES
-  //PUT IN ASYNC FUNCTION PLS
-  // var review = testBlogData.reviews.find(review => _.trim(review.name) === reviewRequest);
-  console.log("hi");
+app.get("/reviews/:review", async function (req, res) {
+  var reviewRequest = req.params.review;
 
-    if(review !== undefined){
+  // console.log(reviewRequest);
+
+  var review = testBlogData.reviews.find(checkReview => _.trim(checkReview.name) === reviewRequest);
+ console.log(review);
+
+ 
       res.render("test-review-template", {
         review
       });
-    }
-    else{
-      res.redirect("/404");
-    }
-  });
+
 
 
   // testBlogData.reviews.forEach(function(review){
@@ -78,9 +79,11 @@ app.get("/reviews/:review", function (req, res) {
   //   else{
   //     res.redirect("/404");
   //   }
-  // });
+ });
   
-  
+  async function renderReview(){
+
+  }
 
 app.get("/reviews", function (req, res) {
   res.render("reviews", {
@@ -90,16 +93,6 @@ app.get("/reviews", function (req, res) {
 })
 
 
-app.get("state", function (req, res) {
-
-
-  res.render('state_template', {
-    records: pageRootChildren,
-    hierarchy
-  });
-  // console.log(JSON.stringify(hierarchy));
-
-})
 
 app.get("/board", function (req, res) {
   res.render('boardmembers')
@@ -234,6 +227,17 @@ app.post('/contact', (req, res) => {
   })
 })
 
+app.get("state", function (req, res) {
+
+
+  res.render('state_template', {
+    records: pageRootChildren,
+    hierarchy
+  });
+  // console.log(JSON.stringify(hierarchy));
+
+})
+
 app.get('/state', async function (req, res) {
 
   // TODO: to Lowercase state name
@@ -246,7 +250,6 @@ app.get('/state', async function (req, res) {
   } else {
     renderResourcesForState(stateCode, res, 'state_template');
   }
-
 
 })
 
