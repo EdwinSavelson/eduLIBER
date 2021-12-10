@@ -209,22 +209,34 @@ app.post('/contact', (req, res) => {
     from: 'tech@eduliber.org',
     to: 'tech@eduliber.org',
     subject: `${req.body.subject}`,
-    text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
+    text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`,
+    blank: `${req.body.blank}`
   }
 
-  // Attempt to send the email
-  smtpTrans.sendMail(mailOpts, (error, response) => {
-    if (error) {
-      console.log(process.env);
-      console.log(error);
-      console.log(process.env.EMAIL_USER);
-      console.log(process.env.EMAIL_PASS);
-      res.render('contact-failure') // Show a page indicating failure
-    } else {
-      console.log("sent");
-      res.render('contact-success') // Show a page indicating success
+  let validate = (mailOpts) =>{
+    if(mailOpts.blank !== ""){
+      res.render('contact-success')
+      console.log("blocked");
+    }else{
+      smtpTrans.sendMail(mailOpts, (error, response) => {
+        if (error) {
+          console.log(process.env);
+          console.log(error);
+          console.log(process.env.EMAIL_USER);
+          console.log(process.env.EMAIL_PASS);
+          res.render('contact-failure') // Show a page indicating failure
+        } else {
+          console.log("sent");
+          console.log(mailOpts);
+          res.render('contact-success') // Show a page indicating success
+        }
+      })
     }
-  })
+  }
+  
+  // Attempt to send the email
+  validate(mailOpts);
+
 })
 
 app.get("state", function (req, res) {
